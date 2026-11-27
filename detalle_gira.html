@@ -9,7 +9,7 @@
   <meta property="og:url" content="https://jbellodev.github.io/directiva-curso-medio-B-panamerican-college/detalle_gira.html">
   <meta property="og:title" content="RENDICIÓN DE CUENTA TESORERÍA DIRECTIVA 2026 • GIRA DE ESTUDIOS">
   <meta property="og:description" content="2° Medio B • Pan American College • Rendición general al 27-11-2026 y detalle de cuenta individual Caja Gira de Estudios.">
-  <meta property="og:image" content="https://jbellodev.github.io/directiva-curso-medio-B-panamerican-college/escudo.png">
+  <meta property="og:image" content="https://jbellodev.github.io/directiva-curso-medio-B-panamerican-college/escudo.png?v=2">
   <meta property="og:image:width" content="800">
   <meta property="og:image:height" content="800">
 
@@ -64,6 +64,22 @@
       overflow-y: visible;
       -webkit-overflow-scrolling: touch;
       touch-action: pan-x pan-y;
+    }
+
+    /* Columna # fija solo en celulares */
+    @media (max-width: 639px) {
+      .fijo-num-movil {
+        position: sticky;
+        left: 0;
+        z-index: 20;
+        min-width: 38px;
+        width: 38px;
+        box-shadow: 2px 0 5px -2px rgba(15, 43, 76, 0.22);
+      }
+      thead .fijo-num-movil,
+      tfoot .fijo-num-movil {
+        z-index: 30;
+      }
     }
   </style>
 </head>
@@ -124,7 +140,7 @@
               Rendición de Cuenta Tesorería 2026
             </h1>
             <p class="text-slate-200 text-sm sm:text-base mt-1 font-medium">
-              2° Medio B &bull; Pan American College &bull; Prof. Jefe: Marcelo Cortés
+              2° Medio B • Pan American College • Prof. Jefe: Marcelo Cortés
             </p>
           </div>
         </div>
@@ -162,7 +178,7 @@
           <div class="flex flex-wrap items-baseline gap-3 mt-0.5">
             <span class="text-3xl sm:text-4xl font-extrabold text-pac-navy tracking-tight">$6.384.975</span>
             <span class="text-xs sm:text-sm font-medium text-slate-500">
-              (Ingresos: <strong class="text-slate-700">$6.596.619</strong> &bull; Egresos: <strong class="text-red-600">-$211.644</strong>)
+              (Ingresos: <strong class="text-slate-700">$6.596.619</strong> • Egresos: <strong class="text-red-600">-$211.644</strong>)
             </span>
           </div>
         </div>
@@ -184,7 +200,7 @@
         <div>
           <div class="flex items-center justify-between mb-3">
             <span class="bg-purple-50 text-purple-700 text-xs font-bold px-2.5 py-1 rounded-full border border-purple-200">
-              Fondo 1 &bull; Uso Común
+              Fondo 1 • Uso Común
             </span>
           </div>
           <h2 class="text-lg font-bold text-slate-800">Fondo 1 : Caja curso general</h2>
@@ -213,7 +229,7 @@
         <div>
           <div class="flex items-center justify-between mb-3">
             <span class="bg-emerald-50 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-full border border-emerald-200">
-              Fondo 2 &bull; Gira de Estudios
+              Fondo 2 • Gira de Estudios
             </span>
           </div>
           <h2 class="text-lg font-bold text-slate-800">Fondo 2 : Caja gira de estudios</h2>
@@ -242,7 +258,7 @@
         <div>
           <div class="flex items-center justify-between mb-3">
             <span class="bg-sky-50 text-sky-700 text-xs font-bold px-2.5 py-1 rounded-full border border-sky-200">
-              Fondo 3 &bull; Alumnos
+              Fondo 3 • Alumnos
             </span>
           </div>
           <h2 class="text-lg font-bold text-slate-800">Fondo 3 : Caja alumnos</h2>
@@ -279,7 +295,7 @@
       <div class="bg-white rounded-2xl card-shadow border border-slate-200/80 overflow-hidden min-w-0">
         <div class="bg-purple-700 text-white px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
-            <span class="text-[11px] uppercase tracking-wider font-bold text-purple-200">Fondo 1 &bull; Administración Directiva</span>
+            <span class="text-[11px] uppercase tracking-wider font-bold text-purple-200">Fondo 1 • Administración Directiva</span>
             <h4 class="text-lg font-bold">Fondo 1 : Caja curso general</h4>
           </div>
           <div class="bg-white/15 px-3.5 py-1.5 rounded-xl text-sm font-bold">
@@ -356,7 +372,7 @@
       <div class="bg-white rounded-2xl card-shadow border border-slate-200/80 overflow-hidden min-w-0">
         <div class="bg-emerald-700 text-white px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
-            <span class="text-[11px] uppercase tracking-wider font-bold text-emerald-200">Fondo 2 &bull; Actividades Gira</span>
+            <span class="text-[11px] uppercase tracking-wider font-bold text-emerald-200">Fondo 2 • Actividades Gira</span>
             <h4 class="text-lg font-bold">Fondo 2 : Caja gira de estudios</h4>
           </div>
           <div class="bg-white/15 px-3.5 py-1.5 rounded-xl text-sm font-bold">
@@ -480,7 +496,7 @@
         <div class="bg-slate-50/80 border-t-2 border-emerald-200 p-4 sm:p-6 space-y-4 min-w-0">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div>
-              <span class="text-[11px] uppercase tracking-wider font-bold text-emerald-700">Cuenta Individual por Alumno &bull; Fondo 2</span>
+              <span class="text-[11px] uppercase tracking-wider font-bold text-emerald-700">Cuenta Individual por Alumno • Fondo 2</span>
               <h5 class="text-base sm:text-lg font-extrabold text-slate-800">Detalle Individual • Caja Gira de Estudios</h5>
             </div>
             <div class="bg-emerald-100 text-emerald-900 border border-emerald-300 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold shrink-0">
@@ -506,7 +522,7 @@
       <div class="bg-white rounded-2xl card-shadow border border-slate-200/80 overflow-hidden min-w-0">
         <div class="bg-sky-700 text-white px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
-            <span class="text-[11px] uppercase tracking-wider font-bold text-sky-200">Fondo 3 &bull; Fondo Estudiantil</span>
+            <span class="text-[11px] uppercase tracking-wider font-bold text-sky-200">Fondo 3 • Fondo Estudiantil</span>
             <h4 class="text-lg font-bold">Fondo 3 : Caja alumnos</h4>
           </div>
           <div class="bg-white/15 px-3.5 py-1.5 rounded-xl text-sm font-bold">
@@ -578,7 +594,7 @@
             <div class="space-y-3 text-sm text-slate-800 leading-relaxed text-justify">
               <div class="flex flex-wrap items-center gap-2">
                 <h5 class="font-extrabold text-amber-900 uppercase tracking-wide text-xs">
-                  Observación Exclusiva &bull; Fondo 3 : Caja alumnos ($741.514)
+                  Observación Exclusiva • Fondo 3 : Caja alumnos ($741.514)
                 </h5>
                 <span class="bg-amber-200/80 text-amber-900 text-[11px] font-bold px-2.5 py-0.5 rounded-full">
                   Acuerdo Reunión 24-11-2026
@@ -612,7 +628,7 @@
           </svg>
         </div>
         <div>
-          <h4 class="text-base font-bold text-pac-gold uppercase tracking-wide">Información Importante &bull; Proceso 2027</h4>
+          <h4 class="text-base font-bold text-pac-gold uppercase tracking-wide">Información Importante • Proceso 2027</h4>
           <p class="text-sm text-slate-100 mt-1.5 leading-relaxed">
             Se informa a toda la comunidad del curso que en la <strong>primera reunión de apoderados del próximo año 2027</strong> se realizará formalmente el <strong>traspaso de la rendición de tesorería</strong>, así como también se definirá y elegirá la <strong>nueva Directiva de Apoderados 2027</strong>.
           </p>
@@ -625,8 +641,8 @@
   <!-- PIE DE PÁGINA -->
   <footer class="bg-white border-t border-slate-200 py-5 mt-8">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
-      <p class="font-semibold text-slate-700">Directiva de Apoderados 2026 &bull; 2° Medio B &bull; Pan American College</p>
-      <p>Presidenta: Myriam Arias &bull; Asesor: Juan Bello &bull; Prof. Jefe: Marcelo Cortés</p>
+      <p class="font-semibold text-slate-700">Directiva de Apoderados 2026 • 2° Medio B • Pan American College</p>
+      <p>Presidenta: Myriam Arias • Asesor: Juan Bello • Prof. Jefe: Marcelo Cortés</p>
     </div>
   </footer>
 
@@ -696,8 +712,8 @@
     const headEl = document.getElementById('gira-individual-head');
     headEl.innerHTML = `
       <tr class="bg-slate-900 text-white uppercase tracking-wider">
-        <th class="py-3 px-2.5 font-semibold w-10 text-center bg-slate-900">#</th>
-        <th class="py-3 px-3 font-semibold min-w-[210px] bg-slate-900">Nombre y Apellido Alumn@</th>
+        <th class="py-3 px-2 font-semibold text-center fijo-num-movil bg-slate-900">#</th>
+        <th class="py-3 px-3 font-semibold min-w-[210px]">Nombre y Apellido Alumn@</th>
         ${COLUMNAS_GIRA.map((col) => {
           const isDesc = col === 'Descuentos';
           const isFinal = col === 'CAJA GIRA DE ESTUDIOS';
@@ -710,11 +726,12 @@
     const bodyEl = document.getElementById('gira-individual-body');
     bodyEl.innerHTML = ALUMNOS_GIRA.map((row, idx) => {
       const [num, nombre, ...vals] = row;
+      const bgNum = idx % 2 === 0 ? 'bg-white' : 'bg-slate-50';
       const bgRow = idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/80';
       return `
         <tr class="${bgRow} hover:bg-sky-50/70">
-          <td class="py-2.5 px-2.5 text-center font-semibold text-slate-500 ${bgRow}">${num}</td>
-          <td class="py-2.5 px-3 font-semibold text-slate-800 ${bgRow}">${nombre}</td>
+          <td class="py-2.5 px-2 text-center font-semibold text-slate-500 fijo-num-movil ${bgNum}">${num}</td>
+          <td class="py-2.5 px-3 font-semibold text-slate-800">${nombre}</td>
           ${vals.map((val, cIdx) => {
             const isDesc = cIdx === 14;
             const isFinal = cIdx === 15;
@@ -732,8 +749,8 @@
     const footEl = document.getElementById('gira-individual-foot');
     footEl.innerHTML = `
       <tr class="bg-slate-900 text-white font-bold text-xs">
-        <td class="py-3.5 px-2.5 bg-slate-900"></td>
-        <td class="py-3.5 px-3 uppercase tracking-wider bg-slate-900">Total por Ítem / Gira</td>
+        <td class="py-3.5 px-2 fijo-num-movil bg-slate-900"></td>
+        <td class="py-3.5 px-3 uppercase tracking-wider">Total por Ítem / Gira</td>
         ${TOTALES_GIRA_COL.map((tot, idx) => {
           const isDesc = idx === 14;
           const isFinal = idx === 15;
