@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RENDICIÓN DE CUENTA TESORERÍA DIRECTIVA 2026 • GIRA DE ESTUDIOS</title>
 
-  <!-- Meta etiquetas para vista previa en WhatsApp / Redes Sociales -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jbellodev.github.io/directiva-curso-medio-B-panamerican-college/detalle_gira.html">
   <meta property="og:title" content="RENDICIÓN DE CUENTA TESORERÍA DIRECTIVA 2026 • GIRA DE ESTUDIOS">
@@ -14,15 +13,12 @@
   <meta property="og:image:width" content="800">
   <meta property="og:image:height" content="800">
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <script>
-    // Configuración de colores institucionales y tipografía Inter para el Pan American College
     tailwind.config = {
       theme: {
         extend: {
@@ -45,11 +41,11 @@
   </script>
 
   <style>
-    /* Estilos base del documento y profundidad visual */
     html, body {
       background-color: #F4F7FA;
       color: #1E293B;
-      overflow-x: clip;
+      max-width: 100%;
+      overflow-x: hidden;
     }
     .pac-gradient {
       background: linear-gradient(135deg, #0F2B4C 0%, #163B66 60%, #1E4E82 100%);
@@ -60,668 +56,581 @@
     .obs-indent {
       text-indent: 1.75rem;
     }
-
-    /* Contenedor de desplazamiento horizontal táctil en celular y escritorio */
-    .scroll-x-touch {
+    .tabla-scroll-movil {
       display: block;
       width: 100%;
-      overflow-x: auto !important;
+      max-width: 100%;
+      overflow-x: auto;
       overflow-y: visible;
       -webkit-overflow-scrolling: touch;
       touch-action: pan-x pan-y;
-    }
-
-    /* Columnas fijas compactas para no tapar el desplazamiento horizontal en móvil */
-    .sticky-num {
-      position: sticky;
-      left: 0;
-      z-index: 20;
-      width: 36px;
-      min-width: 36px;
-    }
-    .sticky-name {
-      position: sticky;
-      left: 36px;
-      z-index: 20;
-      max-width: 185px;
-      box-shadow: 2px 0 6px -2px rgba(15, 43, 76, 0.22);
-    }
-    @media (min-width: 640px) {
-      .sticky-name {
-        max-width: none;
-        min-width: 240px;
-      }
-    }
-    thead .sticky-num,
-    thead .sticky-name {
-      z-index: 30;
-    }
-
-    /* Marco simulado para probar vista móvil (390px) en escritorio */
-    .preview-mobile-frame {
-      max-width: 406px;
-      margin-left: auto;
-      margin-right: auto;
-      border: 8px solid #0F2B4C;
-      border-radius: 28px;
-      box-shadow: 0 18px 40px -10px rgba(15, 43, 76, 0.25);
     }
   </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col">
 
-  <!-- BARRA SUPERIOR DE PREVISUALIZACIÓN (ESCRITORIO / CELULAR 390PX) -->
-  <div class="bg-slate-900 text-slate-200 text-xs border-b border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
-        <span class="font-semibold text-white">Vista Previa detalle_gira.html</span>
-        <span class="text-slate-400 hidden sm:inline">&bull; Corte 27-11-2026 &bull; 3 Fondos + Cuentas Individuales</span>
-      </div>
+  <!-- ENCABEZADO INSTITUCIONAL -->
+  <header class="pac-gradient text-white border-b-4 border-pac-gold shadow-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
 
-      <div class="flex items-center gap-1.5 bg-slate-800 p-1 rounded-xl border border-slate-700" role="group" aria-label="Alternar vista previa">
-        <button
-          id="btn-vista-escritorio"
-          type="button"
-          onclick="setPreviewMode('escritorio')"
-          class="px-3 py-1 rounded-lg font-semibold bg-pac-gold text-slate-950 transition cursor-pointer"
-        >
-          Escritorio
-        </button>
-        <button
-          id="btn-vista-movil"
-          type="button"
-          onclick="setPreviewMode('movil')"
-          class="px-3 py-1 rounded-lg font-semibold text-slate-300 hover:text-white transition cursor-pointer"
-        >
-          Celular (390px)
-        </button>
+        <div class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-4 min-w-0">
+          <div class="bg-white p-2 rounded-2xl shadow-md shrink-0 w-24 h-24 flex items-center justify-center">
+            <svg viewBox="0 0 220 230" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Escudo Pan American College Fundado en 1950">
+              <defs>
+                <path id="topArc" d="M 22,95 A 88,88 0 0,1 198,95" />
+                <path id="bottomArc" d="M 32,165 A 85,85 0 0,0 188,165" />
+              </defs>
+              <text fill="#0F2B4C" font-family="Georgia, serif" font-weight="bold" font-size="18.5" letter-spacing="1.2">
+                <textPath href="#topArc" startOffset="50%" text-anchor="middle">PAN AMERICAN COLLEGE</textPath>
+              </text>
+              <polygon points="88,43 91,50 98,50 92,55 94,62 88,58 82,62 84,55 78,50 85,50" fill="#D4AF37" />
+              <polygon points="132,43 135,50 142,50 136,55 138,62 132,58 126,62 128,55 122,50 129,50" fill="#D4AF37" />
+              <path d="M 55,66 Q 75,72 90,62 Q 110,72 130,62 Q 145,72 165,66 L 160,115 Q 170,138 152,162 Q 132,178 110,188 Q 88,178 68,162 Q 50,138 60,115 Z" fill="#0F2B4C" />
+              <text x="110" y="82" fill="#FFFFFF" font-family="sans-serif" font-weight="800" font-size="11" text-anchor="middle" letter-spacing="0.5">PAN</text>
+              <text x="110" y="93" fill="#FFFFFF" font-family="sans-serif" font-weight="800" font-size="11" text-anchor="middle" letter-spacing="0.5">AMERICAN</text>
+              <path d="M 68,85 Q 63,74 68,66 Q 72,72 74,67 Q 78,74 75,85 Z" fill="#D32F2F" />
+              <rect x="66" y="85" width="11" height="4" rx="1" fill="#7CC4CB" />
+              <path d="M 69,89 L 86,120 L 94,116 L 75,89 Z" fill="#9BD5DC" />
+              <g stroke="#9BD5DC" stroke-width="2" stroke-linecap="round">
+                <line x1="110" y1="103" x2="110" y2="95" />
+                <line x1="104" y1="105" x2="98" y2="98" />
+                <line x1="116" y1="105" x2="122" y2="98" />
+                <line x1="100" y1="110" x2="93" y2="106" />
+                <line x1="120" y1="110" x2="127" y2="106" />
+              </g>
+              <circle cx="110" cy="113" r="7" fill="#FFFFFF" />
+              <path d="M 103,112 Q 110,104 117,112" fill="none" stroke="#0F2B4C" stroke-width="2" />
+              <path d="M 92,120 L 128,120 L 134,162 L 86,162 Z" fill="#88CCD4" />
+              <path d="M 98,120 L 93,162 M 106,120 L 103,162 M 114,120 L 114,162 M 122,120 L 126,162" stroke="#0F2B4C" stroke-width="2" />
+              <polygon points="126,134 146,134 140,152 120,152" fill="#FFFFFF" stroke="#0F2B4C" stroke-width="1.5" />
+              <text x="110" y="175" fill="#FFFFFF" font-family="sans-serif" font-weight="800" font-size="11" text-anchor="middle" letter-spacing="0.8">COLLEGE</text>
+              <text fill="#0F2B4C" font-family="Georgia, serif" font-weight="bold" font-size="16" letter-spacing="1">
+                <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">FUNDADO EN 1950</textPath>
+              </text>
+            </svg>
+          </div>
+
+          <div class="min-w-0">
+            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2">
+              <span class="bg-pac-gold/20 border border-pac-gold/50 text-pac-gold text-xs font-semibold px-3 py-0.5 rounded-full">
+                Transparencia Directiva 2026
+              </span>
+              <span class="bg-white/10 border border-white/20 text-slate-200 text-xs font-medium px-3 py-0.5 rounded-full">
+                Corte al 27-11-2026
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+              Rendición de Cuenta Tesorería 2026
+            </h1>
+            <p class="text-slate-200 text-sm sm:text-base mt-1 font-medium">
+              2° Medio B &bull; Pan American College &bull; Prof. Jefe: Marcelo Cortés
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center md:justify-end gap-2.5 shrink-0">
+          <div class="bg-white/10 backdrop-blur-sm border border-white/15 px-3.5 py-2 rounded-xl text-xs">
+            <span class="text-pac-gold font-bold block uppercase tracking-wider text-[10px]">Presidenta</span>
+            <span class="text-white font-semibold text-sm">Myriam Arias</span>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm border border-white/15 px-3.5 py-2 rounded-xl text-xs">
+            <span class="text-pac-cyan font-bold block uppercase tracking-wider text-[10px]">Asesor</span>
+            <span class="text-white font-semibold text-sm">Juan Bello</span>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
+  </header>
 
-  <!-- CONTENEDOR INTERCAMBIABLE DE VISTA -->
-  <div id="preview-wrapper" class="flex-1 flex flex-col w-full transition-all duration-300">
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex-1 w-full min-w-0 space-y-8">
 
-    <!-- ENCABEZADO INSTITUCIONAL -->
-    <header class="pac-gradient text-white border-b-4 border-pac-gold shadow-md">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+    <!-- TARJETA CONSOLIDADA SUPERIOR -->
+    <section class="bg-white rounded-2xl p-6 card-shadow border border-slate-200/80 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 min-w-0">
+      <div class="flex items-center gap-4 min-w-0">
+        <div class="w-14 h-14 rounded-2xl bg-pac-navy text-pac-gold flex items-center justify-center shrink-0 shadow-inner">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11m16-11v11M8 14v3m4-3v3m4-3v3" />
+          </svg>
+        </div>
+        <div class="min-w-0">
+          <p class="text-xs font-bold uppercase tracking-wider text-slate-500">
+            Total Cuenta Caja 2° Medio B 2026 al 27-11-2026
+          </p>
+          <div class="flex flex-wrap items-baseline gap-3 mt-0.5">
+            <span class="text-3xl sm:text-4xl font-extrabold text-pac-navy tracking-tight">$6.384.975</span>
+            <span class="text-xs sm:text-sm font-medium text-slate-500">
+              (Ingresos: <strong class="text-slate-700">$6.596.619</strong> &bull; Egresos: <strong class="text-red-600">-$211.644</strong>)
+            </span>
+          </div>
+        </div>
+      </div>
 
-          <!-- Escudo y Título -->
-          <div class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-4">
-            <!-- Escudo SVG Pan American College -->
-            <div class="bg-white p-2 rounded-2xl shadow-md shrink-0 w-24 h-24 flex items-center justify-center">
-              <svg viewBox="0 0 220 230" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Escudo Pan American College Fundado en 1950">
-                <defs>
-                  <path id="topArc" d="M 22,95 A 88,88 0 0,1 198,95" />
-                  <path id="bottomArc" d="M 32,165 A 85,85 0 0,0 188,165" />
-                </defs>
-                <!-- Arco superior -->
-                <text fill="#0F2B4C" font-family="Georgia, serif" font-weight="bold" font-size="18.5" letter-spacing="1.2">
-                  <textPath href="#topArc" startOffset="50%" text-anchor="middle">PAN AMERICAN COLLEGE</textPath>
-                </text>
-                <!-- Dos estrellas doradas -->
-                <polygon points="88,43 91,50 98,50 92,55 94,62 88,58 82,62 84,55 78,50 85,50" fill="#D4AF37" />
-                <polygon points="132,43 135,50 142,50 136,55 138,62 132,58 126,62 128,55 122,50 129,50" fill="#D4AF37" />
-                <!-- Escudo azul marino -->
-                <path d="M 55,66 Q 75,72 90,62 Q 110,72 130,62 Q 145,72 165,66 L 160,115 Q 170,138 152,162 Q 132,178 110,188 Q 88,178 68,162 Q 50,138 60,115 Z" fill="#0F2B4C" />
-                <!-- Texto interior escudo -->
-                <text x="110" y="82" fill="#FFFFFF" font-family="sans-serif" font-weight="800" font-size="11" text-anchor="middle" letter-spacing="0.5">PAN</text>
-                <text x="110" y="93" fill="#FFFFFF" font-family="sans-serif" font-weight="800" font-size="11" text-anchor="middle" letter-spacing="0.5">AMERICAN</text>
-                <!-- Antorcha -->
-                <path d="M 68,85 Q 63,74 68,66 Q 72,72 74,67 Q 78,74 75,85 Z" fill="#D32F2F" />
-                <rect x="66" y="85" width="11" height="4" rx="1" fill="#7CC4CB" />
-                <!-- Brazo y Estatua -->
-                <path d="M 69,89 L 86,120 L 94,116 L 75,89 Z" fill="#9BD5DC" />
-                <!-- Corona y cabeza -->
-                <g stroke="#9BD5DC" stroke-width="2" stroke-linecap="round">
-                  <line x1="110" y1="103" x2="110" y2="95" />
-                  <line x1="104" y1="105" x2="98" y2="98" />
-                  <line x1="116" y1="105" x2="122" y2="98" />
-                  <line x1="100" y1="110" x2="93" y2="106" />
-                  <line x1="120" y1="110" x2="127" y2="106" />
-                </g>
-                <circle cx="110" cy="113" r="7" fill="#FFFFFF" />
-                <path d="M 103,112 Q 110,104 117,112" fill="none" stroke="#0F2B4C" stroke-width="2" />
-                <!-- Túnica -->
-                <path d="M 92,120 L 128,120 L 134,162 L 86,162 Z" fill="#88CCD4" />
-                <path d="M 98,120 L 93,162 M 106,120 L 103,162 M 114,120 L 114,162 M 122,120 L 126,162" stroke="#0F2B4C" stroke-width="2" />
-                <!-- Libro -->
-                <polygon points="126,134 146,134 140,152 120,152" fill="#FFFFFF" stroke="#0F2B4C" stroke-width="1.5" />
-                <!-- Texto inferior escudo -->
-                <text x="110" y="175" fill="#FFFFFF" font-family="sans-serif" font-weight="800" font-size="11" text-anchor="middle" letter-spacing="0.8">COLLEGE</text>
-                <!-- Arco inferior -->
-                <text fill="#0F2B4C" font-family="Georgia, serif" font-weight="bold" font-size="16" letter-spacing="1">
-                  <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">FUNDADO EN 1950</textPath>
-                </text>
+      <div class="bg-slate-50 border border-slate-200/90 rounded-xl px-4 py-2.5 text-xs text-slate-600 flex items-center gap-2 max-w-xs">
+        <svg class="w-4 h-4 text-pac-blue shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" /><path d="M12 16v-4m0-4h.01" />
+        </svg>
+        <span>Suma de los 3 fondos vigentes en cuenta. Cada caja tiene destino exclusivo.</span>
+      </div>
+    </section>
+
+    <!-- RESUMEN DE LAS 3 CAJAS (TARJETAS) -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 min-w-0">
+
+      <!-- Fondo 1 : Caja curso general -->
+      <div class="bg-white rounded-2xl p-6 card-shadow border border-slate-200/80 border-t-4 border-t-purple-600 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="bg-purple-50 text-purple-700 text-xs font-bold px-2.5 py-1 rounded-full border border-purple-200">
+              Fondo 1 &bull; Uso Común
+            </span>
+          </div>
+          <h2 class="text-lg font-bold text-slate-800">Fondo 1 : Caja curso general</h2>
+          <p class="text-xs text-slate-500 mt-1">Cuotas anuales y gastos generales (Día del Profesor y convivencias).</p>
+
+          <div class="mt-5">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Saldo Disponible Actual</span>
+            <p class="text-3xl font-extrabold text-purple-700 mt-0.5">$303.253</p>
+          </div>
+        </div>
+
+        <div class="mt-5 pt-3 border-t border-slate-100 text-xs space-y-1.5">
+          <div class="flex justify-between">
+            <span class="text-slate-500">Total Ingresos (3 ítems):</span>
+            <span class="font-bold text-slate-700">$390.833</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Total Egresos (4 ítems):</span>
+            <span class="font-bold text-red-600">-$87.580</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fondo 2 : Caja gira de estudios -->
+      <div class="bg-white rounded-2xl p-6 card-shadow border border-slate-200/80 border-t-4 border-t-emerald-600 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="bg-emerald-50 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-full border border-emerald-200">
+              Fondo 2 &bull; Gira de Estudios
+            </span>
+          </div>
+          <h2 class="text-lg font-bold text-slate-800">Fondo 2 : Caja gira de estudios</h2>
+          <p class="text-xs text-slate-500 mt-1">Fondos recaudados exclusivamente para la gira de estudios del curso.</p>
+
+          <div class="mt-5">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Saldo Disponible Actual</span>
+            <p class="text-3xl font-extrabold text-emerald-700 mt-0.5">$5.340.208</p>
+          </div>
+        </div>
+
+        <div class="mt-5 pt-3 border-t border-slate-100 text-xs space-y-1.5">
+          <div class="flex justify-between">
+            <span class="text-slate-500">Total Ingresos (14 ítems):</span>
+            <span class="font-bold text-slate-700">$5.464.272</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Total Egresos (Descuentos):</span>
+            <span class="font-bold text-red-600">-$124.064</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fondo 3 : Caja alumnos -->
+      <div class="bg-white rounded-2xl p-6 card-shadow border border-slate-200/80 border-t-4 border-t-sky-600 flex flex-col justify-between min-w-0">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="bg-sky-50 text-sky-700 text-xs font-bold px-2.5 py-1 rounded-full border border-sky-200">
+              Fondo 3 &bull; Alumnos
+            </span>
+          </div>
+          <h2 class="text-lg font-bold text-slate-800">Fondo 3 : Caja alumnos</h2>
+          <p class="text-xs text-slate-500 mt-1">Fondo común de los estudiantes (entrega en efectivo el 30-11-2026).</p>
+
+          <div class="mt-5">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Saldo Disponible Actual</span>
+            <p class="text-3xl font-extrabold text-sky-700 mt-0.5">$741.514</p>
+          </div>
+        </div>
+
+        <div class="mt-5 pt-3 border-t border-slate-100 text-xs space-y-1.5">
+          <div class="flex justify-between">
+            <span class="text-slate-500">Total Ingresos (5 ítems):</span>
+            <span class="font-bold text-slate-700">$741.514</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-500">Total Egresos:</span>
+            <span class="font-bold text-slate-700">$0</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- DETALLE POR CAJA -->
+    <section class="space-y-8 pt-2 min-w-0">
+      <div class="border-b border-slate-200 pb-2">
+        <h3 class="text-xl font-extrabold text-pac-navy">Detalle de Movimientos por Caja</h3>
+        <p class="text-xs sm:text-sm text-slate-500">Desglose oficial de ingresos, egresos y subtotales de cada fondo al 27-11-2026.</p>
+      </div>
+
+      <!-- TABLA 1: FONDO 1 : CAJA CURSO GENERAL -->
+      <div class="bg-white rounded-2xl card-shadow border border-slate-200/80 overflow-hidden min-w-0">
+        <div class="bg-purple-700 text-white px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] uppercase tracking-wider font-bold text-purple-200">Fondo 1 &bull; Administración Directiva</span>
+            <h4 class="text-lg font-bold">Fondo 1 : Caja curso general</h4>
+          </div>
+          <div class="bg-white/15 px-3.5 py-1.5 rounded-xl text-sm font-bold">
+            Saldo Final: $303.253
+          </div>
+        </div>
+        <div class="tabla-scroll-movil">
+          <table class="w-full text-left border-collapse text-sm min-w-[580px]">
+            <thead>
+              <tr class="bg-slate-900 text-white text-xs uppercase tracking-wider">
+                <th class="py-3 px-5 font-semibold">Ítem</th>
+                <th class="py-3 px-5 font-semibold text-right">Ingresos</th>
+                <th class="py-3 px-5 font-semibold text-right">Egresos</th>
+                <th class="py-3 px-5 font-semibold text-right">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Remanente directiva 2025</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$60.833</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$60.833</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Cuota anual 1° medio B 2025 (3 cuotas pendientes)</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$30.000</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$30.000</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Cuota anual 2° medio B 2026</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$300.000</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$300.000</td>
+              </tr>
+              <tr class="bg-red-50/40 hover:bg-red-50/70">
+                <td class="py-3 px-5 font-medium text-slate-800">Regalo día del profesor</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-red-600">-$32.990</td>
+                <td class="py-3 px-5 text-right font-semibold text-red-600">-$32.990</td>
+              </tr>
+              <tr class="bg-red-50/40 hover:bg-red-50/70">
+                <td class="py-3 px-5 font-medium text-slate-800">Insumos convivencia 18-06-2026 (previo a vacaciones de invierno)</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-red-600">-$5.500</td>
+                <td class="py-3 px-5 text-right font-semibold text-red-600">-$5.500</td>
+              </tr>
+              <tr class="bg-red-50/40 hover:bg-red-50/70">
+                <td class="py-3 px-5 font-medium text-slate-800">Insumos convivencia 11-09-2026 (previo a fiestas patrias)</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-red-600">-$41.600</td>
+                <td class="py-3 px-5 text-right font-semibold text-red-600">-$41.600</td>
+              </tr>
+              <tr class="bg-red-50/40 hover:bg-red-50/70">
+                <td class="py-3 px-5 font-medium text-slate-800">Insumos convivencia 09-10-2026 (Aniversario del colegio)</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-red-600">-$7.490</td>
+                <td class="py-3 px-5 text-right font-semibold text-red-600">-$7.490</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class="bg-slate-900 text-white font-bold">
+                <td class="py-3.5 px-5 text-right uppercase text-xs tracking-wider">Total Fondo 1 : Caja curso general</td>
+                <td class="py-3.5 px-5 text-right text-amber-300">$390.833</td>
+                <td class="py-3.5 px-5 text-right text-red-300">-$87.580</td>
+                <td class="py-3.5 px-5 text-right text-emerald-400 text-base">$303.253</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <!-- TABLA 2: FONDO 2 : CAJA GIRA DE ESTUDIOS + DETALLE INDIVIDUAL -->
+      <div class="bg-white rounded-2xl card-shadow border border-slate-200/80 overflow-hidden min-w-0">
+        <div class="bg-emerald-700 text-white px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] uppercase tracking-wider font-bold text-emerald-200">Fondo 2 &bull; Actividades Gira</span>
+            <h4 class="text-lg font-bold">Fondo 2 : Caja gira de estudios</h4>
+          </div>
+          <div class="bg-white/15 px-3.5 py-1.5 rounded-xl text-sm font-bold">
+            Saldo Final: $5.340.208
+          </div>
+        </div>
+        <div class="tabla-scroll-movil">
+          <table class="w-full text-left border-collapse text-sm min-w-[580px]">
+            <thead>
+              <tr class="bg-slate-900 text-white text-xs uppercase tracking-wider">
+                <th class="py-3 px-5 font-semibold">Ítem</th>
+                <th class="py-3 px-5 font-semibold text-right">Ingresos</th>
+                <th class="py-3 px-5 font-semibold text-right">Egresos</th>
+                <th class="py-3 px-5 font-semibold text-right">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Recaudación 2025 gira estudio</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$295.000</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$295.000</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Rifa en reunión Apo. 04-11-2025</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$180.000</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$180.000</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Bingo 08-11-2025</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$328.548</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$328.548</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Feria de las pulgas 09-03-2026</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$74.000</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$74.000</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Once reuApo 24-03-2026</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$84.700</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$84.700</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Rifa en reunión Apo. 24-03-2026</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$170.000</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$170.000</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Show de talento 08-05-2026</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$793.938</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$793.938</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Rifa en reunión Apo. 26-05-2026</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$170.000</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$170.000</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Rifa en reunión Apo. 28-07-2026</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$180.000</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$180.000</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Peña 05-09-2026</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$852.036</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$852.036</td>
+              </tr>
+              <tr class="bg-sky-50/60 hover:bg-sky-50">
+                <td class="py-3 px-5 font-semibold text-slate-800">Cupo(s) liberado(s) gira 2026</td>
+                <td class="py-3 px-5 text-right font-bold text-sky-700">$1.985.000</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-bold text-slate-800">$1.985.000</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Rifa en reunión Apo. 24-11-2026</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$170.000</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$170.000</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Once reuApo 24-11-2026</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$129.250</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$129.250</td>
+              </tr>
+              <tr class="bg-emerald-50/70 hover:bg-emerald-50">
+                <td class="py-3 px-5 font-semibold text-slate-800">Rentabilidad cuenta bancaria prioridad gira de estudios</td>
+                <td class="py-3 px-5 text-right font-bold text-emerald-700">$51.800</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-bold text-slate-800">$51.800</td>
+              </tr>
+              <tr class="bg-red-50/70 hover:bg-red-50">
+                <td class="py-3 px-5 font-semibold text-slate-800">Descuentos</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-bold text-red-600">-$124.064</td>
+                <td class="py-3 px-5 text-right font-bold text-red-600">-$124.064</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class="bg-slate-900 text-white font-bold">
+                <td class="py-3.5 px-5 text-right uppercase text-xs tracking-wider">Total Fondo 2 : Caja gira de estudios</td>
+                <td class="py-3.5 px-5 text-right text-amber-300">$5.464.272</td>
+                <td class="py-3.5 px-5 text-right text-red-300">-$124.064</td>
+                <td class="py-3.5 px-5 text-right text-emerald-400 text-base">$5.340.208</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <!-- DETALLE INDIVIDUAL INTEGRADO EN FONDO 2 -->
+        <div class="bg-slate-50/80 border-t-2 border-emerald-200 p-4 sm:p-6 space-y-4 min-w-0">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <span class="text-[11px] uppercase tracking-wider font-bold text-emerald-700">Cuenta Individual por Alumno &bull; Fondo 2</span>
+              <h5 class="text-base sm:text-lg font-extrabold text-slate-800">Detalle Individual • Caja Gira de Estudios</h5>
+            </div>
+            <div class="bg-emerald-100 text-emerald-900 border border-emerald-300 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold shrink-0">
+              Saldo Final Gira: $5.340.208
+            </div>
+          </div>
+
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            A continuación se detalla el aporte acumulado por cada alumno en las actividades de recaudación de la <strong>Caja Gira de Estudios</strong>, el ítem <strong>Descuentos (-$124.064)</strong> aplicado y su saldo final individual. En celular, arrastra hacia los lados sobre la grilla para revisar todas las columnas.
+          </p>
+
+          <div class="tabla-scroll-movil rounded-xl border border-slate-200 bg-white">
+            <table id="gira-individual-table" class="text-left border-collapse text-xs whitespace-nowrap" style="min-width: 2450px;">
+              <thead id="gira-individual-head"></thead>
+              <tbody id="gira-individual-body" class="divide-y divide-slate-100 text-slate-700"></tbody>
+              <tfoot id="gira-individual-foot"></tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABLA 3: FONDO 3 : CAJA ALUMNOS + OBSERVACIÓN ESPECÍFICA -->
+      <div class="bg-white rounded-2xl card-shadow border border-slate-200/80 overflow-hidden min-w-0">
+        <div class="bg-sky-700 text-white px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] uppercase tracking-wider font-bold text-sky-200">Fondo 3 &bull; Fondo Estudiantil</span>
+            <h4 class="text-lg font-bold">Fondo 3 : Caja alumnos</h4>
+          </div>
+          <div class="bg-white/15 px-3.5 py-1.5 rounded-xl text-sm font-bold">
+            Saldo Final: $741.514
+          </div>
+        </div>
+
+        <div class="tabla-scroll-movil">
+          <table class="w-full text-left border-collapse text-sm min-w-[580px]">
+            <thead>
+              <tr class="bg-slate-900 text-white text-xs uppercase tracking-wider">
+                <th class="py-3 px-5 font-semibold">Ítem</th>
+                <th class="py-3 px-5 font-semibold text-right">Ingresos</th>
+                <th class="py-3 px-5 font-semibold text-right">Egresos</th>
+                <th class="py-3 px-5 font-semibold text-right">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Once 3ra. Reunión apoderados 28-07-2026</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$53.500</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$53.500</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Venta de globos 14-08-2026</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$142.750</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$142.750</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Jeans Day año 2026</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$118.390</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$118.390</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Saldo cuotas año 2025</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$290.000</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$290.000</td>
+              </tr>
+              <tr class="hover:bg-slate-50/80">
+                <td class="py-3 px-5 font-medium text-slate-800">Ahorro directiva alumnos 2025</td>
+                <td class="py-3 px-5 text-right font-semibold text-emerald-700">$136.874</td>
+                <td class="py-3 px-5 text-right text-slate-400">—</td>
+                <td class="py-3 px-5 text-right font-semibold text-slate-800">$136.874</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class="bg-slate-900 text-white font-bold">
+                <td class="py-3.5 px-5 text-right uppercase text-xs tracking-wider">Total Fondo 3 : Caja alumnos</td>
+                <td class="py-3.5 px-5 text-right text-amber-300">$741.514</td>
+                <td class="py-3.5 px-5 text-right text-slate-300">$0</td>
+                <td class="py-3.5 px-5 text-right text-emerald-400 text-base">$741.514</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <!-- OBSERVACIÓN EXCLUSIVA CAJA ALUMNOS -->
+        <div class="bg-amber-50/90 border-t-2 border-amber-300 p-6">
+          <div class="flex items-start gap-3">
+            <div class="bg-amber-500 text-white p-1.5 rounded-lg shrink-0 mt-0.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
               </svg>
             </div>
-
-            <div>
-              <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2">
-                <span class="bg-pac-gold/20 border border-pac-gold/50 text-pac-gold text-xs font-semibold px-3 py-0.5 rounded-full">
-                  Transparencia Directiva 2026
-                </span>
-                <span class="bg-white/10 border border-white/20 text-slate-200 text-xs font-medium px-3 py-0.5 rounded-full">
-                  Corte al 27-11-2026
+            <div class="space-y-3 text-sm text-slate-800 leading-relaxed text-justify">
+              <div class="flex flex-wrap items-center gap-2">
+                <h5 class="font-extrabold text-amber-900 uppercase tracking-wide text-xs">
+                  Observación Exclusiva &bull; Fondo 3 : Caja alumnos ($741.514)
+                </h5>
+                <span class="bg-amber-200/80 text-amber-900 text-[11px] font-bold px-2.5 py-0.5 rounded-full">
+                  Acuerdo Reunión 24-11-2026
                 </span>
               </div>
-              <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
-                Rendición de Cuenta Tesorería 2026
-              </h1>
-              <p class="text-slate-200 text-sm sm:text-base mt-1 font-medium">
-                2° Medio B &bull; Pan American College &bull; Prof. Jefe: Marcelo Cortés
+
+              <p class="obs-indent">
+                Debido a que en la reunión de apoderados del 24-11-2026 no quedó claro que la Directiva de Apoderados 2026 no le dará ningún destino a la Caja de Alumnos, ni tampoco la administrará —y menos aún pasará por encima de las decisiones del curso y su directiva de alumnos 2026—, sino que la intención era resguardarla por seguridad en la cuenta bancaria del curso, y considerando además la petición especial del profesor Marcelo Cortés, quien solicitó a la directiva de apoderados devolver el dinero del ítem <em>Saldo cuotas año 2025</em> (ya que no todos los alumnos pagaron dichas cuotas), esto último fue rechazado mediante votación por la mayoría de los apoderados presentes, bajo el compromiso de que quienes no han pagado las cuotas o mantienen cuotas pendientes se pongan al día, dado que se trata de un fondo o caja común de los alumnos de carácter equitativo y no solidario.
+              </p>
+
+              <p class="obs-indent">
+                Adicionalmente, por votación de la mayoría de los presentes en la misma reunión, se decidió no devolver el dinero de los ítems <em>Venta de globos 14-08-2026</em> y <em>Once 3ra. reunión de apoderados 28-07-2026</em>, conservándolo en la Caja de Alumnos.
+              </p>
+
+              <p class="obs-indent font-medium text-slate-900 bg-white/80 p-3.5 rounded-xl border border-amber-200">
+                Dicho todo lo anterior, y para que no se sigan presentando interpretaciones equívocas respecto de las gestiones de la Directiva de Apoderados 2026, se ha decidido devolver en efectivo al profesor Marcelo Cortés la totalidad del dinero de la Caja de Alumnos, cuyo monto asciende a <strong class="text-sky-800 font-extrabold">$741.514</strong>, entrega que se realizará el <strong>lunes 30-11-2026</strong>.
               </p>
             </div>
           </div>
-
-          <!-- Directiva 2026 -->
-          <div class="flex flex-wrap justify-center md:justify-end gap-2.5">
-            <div class="bg-white/10 backdrop-blur-sm border border-white/15 px-3.5 py-2 rounded-xl text-xs">
-              <span class="text-pac-gold font-bold block uppercase tracking-wider text-[10px]">Presidenta</span>
-              <span class="text-white font-semibold text-sm">Myriam Arias</span>
-            </div>
-            <div class="bg-white/10 backdrop-blur-sm border border-white/15 px-3.5 py-2 rounded-xl text-xs">
-              <span class="text-pac-cyan font-bold block uppercase tracking-wider text-[10px]">Asesor</span>
-              <span class="text-white font-semibold text-sm">Juan Bello</span>
-            </div>
-          </div>
-
         </div>
       </div>
-    </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex-1 w-full space-y-8">
+    </section>
 
-      <!-- TARJETA CONSOLIDADA SUPERIOR -->
-      <section class="bg-white rounded-2xl p-6 card-shadow border border-slate-200/80 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div class="flex items-center gap-4">
-          <div class="w-14 h-14 rounded-2xl bg-pac-navy text-pac-gold flex items-center justify-center shrink-0 shadow-inner">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11m16-11v11M8 14v3m4-3v3m4-3v3" />
-            </svg>
-          </div>
-          <div>
-            <p class="text-xs font-bold uppercase tracking-wider text-slate-500">
-              Total Cuenta Caja 2° Medio B 2026 al 27-11-2026
-            </p>
-            <div class="flex flex-wrap items-baseline gap-3 mt-0.5">
-              <span class="text-3xl sm:text-4xl font-extrabold text-pac-navy tracking-tight">$6.384.975</span>
-              <span class="text-xs sm:text-sm font-medium text-slate-500">
-                (Ingresos: <strong class="text-slate-700">$6.596.619</strong> &bull; Egresos: <strong class="text-red-600">-$211.644</strong>)
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-slate-50 border border-slate-200/90 rounded-xl px-4 py-2.5 text-xs text-slate-600 flex items-center gap-2 max-w-xs">
-          <svg class="w-4 h-4 text-pac-blue shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10" /><path d="M12 16v-4m0-4h.01" />
+    <!-- AVISO CIERRE Y TRASPASO DIRECTIVA 2027 -->
+    <section class="bg-pac-navy text-white rounded-2xl p-6 card-shadow border-l-4 border-pac-gold">
+      <div class="flex items-start gap-4">
+        <div class="bg-pac-gold/20 text-pac-gold p-2.5 rounded-xl shrink-0">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
-          <span>Suma de los 3 fondos vigentes en cuenta. Cada caja tiene destino exclusivo.</span>
         </div>
-      </section>
-
-      <!-- RESUMEN DE LAS 3 CAJAS (TARJETAS) -->
-      <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-        <!-- Fondo 1 : Caja curso general -->
-        <div class="bg-white rounded-2xl p-6 card-shadow border border-slate-200/80 border-t-4 border-t-purple-600 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="bg-purple-50 text-purple-700 text-xs font-bold px-2.5 py-1 rounded-full border border-purple-200">
-                Fondo 1 &bull; Uso Común
-              </span>
-            </div>
-            <h2 class="text-lg font-bold text-slate-800">Fondo 1 : Caja curso general</h2>
-            <p class="text-xs text-slate-500 mt-1">Cuotas anuales y gastos generales (Día del Profesor y convivencias).</p>
-
-            <div class="mt-5">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Saldo Disponible Actual</span>
-              <p class="text-3xl font-extrabold text-purple-700 mt-0.5">$303.253</p>
-            </div>
-          </div>
-
-          <div class="mt-5 pt-3 border-t border-slate-100 text-xs space-y-1.5">
-            <div class="flex justify-between">
-              <span class="text-slate-500">Total Ingresos (3 ítems):</span>
-              <span class="font-bold text-slate-700">$390.833</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-slate-500">Total Egresos (4 ítems):</span>
-              <span class="font-bold text-red-600">-$87.580</span>
-            </div>
-          </div>
+        <div>
+          <h4 class="text-base font-bold text-pac-gold uppercase tracking-wide">Información Importante &bull; Proceso 2027</h4>
+          <p class="text-sm text-slate-100 mt-1.5 leading-relaxed">
+            Se informa a toda la comunidad del curso que en la <strong>primera reunión de apoderados del próximo año 2027</strong> se realizará formalmente el <strong>traspaso de la rendición de tesorería</strong>, así como también se definirá y elegirá la <strong>nueva Directiva de Apoderados 2027</strong>.
+          </p>
         </div>
-
-        <!-- Fondo 2 : Caja gira de estudios -->
-        <div class="bg-white rounded-2xl p-6 card-shadow border border-slate-200/80 border-t-4 border-t-emerald-600 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="bg-emerald-50 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-full border border-emerald-200">
-                Fondo 2 &bull; Gira de Estudios
-              </span>
-            </div>
-            <h2 class="text-lg font-bold text-slate-800">Fondo 2 : Caja gira de estudios</h2>
-            <p class="text-xs text-slate-500 mt-1">Fondos recaudados exclusivamente para la gira de estudios del curso.</p>
-
-            <div class="mt-5">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Saldo Disponible Actual</span>
-              <p class="text-3xl font-extrabold text-emerald-700 mt-0.5">$5.340.208</p>
-            </div>
-          </div>
-
-          <div class="mt-5 pt-3 border-t border-slate-100 text-xs space-y-1.5">
-            <div class="flex justify-between">
-              <span class="text-slate-500">Total Ingresos (14 ítems):</span>
-              <span class="font-bold text-slate-700">$5.464.272</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-slate-500">Total Egresos (Descuentos):</span>
-              <span class="font-bold text-red-600">-$124.064</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Fondo 3 : Caja alumnos -->
-        <div class="bg-white rounded-2xl p-6 card-shadow border border-slate-200/80 border-t-4 border-t-sky-600 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="bg-sky-50 text-sky-700 text-xs font-bold px-2.5 py-1 rounded-full border border-sky-200">
-                Fondo 3 &bull; Alumnos
-              </span>
-            </div>
-            <h2 class="text-lg font-bold text-slate-800">Fondo 3 : Caja alumnos</h2>
-            <p class="text-xs text-slate-500 mt-1">Fondo común de los estudiantes (entrega en efectivo el 30-11-2026).</p>
-
-            <div class="mt-5">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Saldo Disponible Actual</span>
-              <p class="text-3xl font-extrabold text-sky-700 mt-0.5">$741.514</p>
-            </div>
-          </div>
-
-          <div class="mt-5 pt-3 border-t border-slate-100 text-xs space-y-1.5">
-            <div class="flex justify-between">
-              <span class="text-slate-500">Total Ingresos (5 ítems):</span>
-              <span class="font-bold text-slate-700">$741.514</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-slate-500">Total Egresos:</span>
-              <span class="font-bold text-slate-700">$0</span>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- DETALLE POR CAJA -->
-      <section class="space-y-8 pt-2">
-        <div class="border-b border-slate-200 pb-2">
-          <h3 class="text-xl font-extrabold text-pac-navy">Detalle de Movimientos por Caja</h3>
-          <p class="text-xs sm:text-sm text-slate-500">Desglose oficial de ingresos, egresos y subtotales de cada fondo al 27-11-2026.</p>
-        </div>
-
-        <!-- TABLA 1: FONDO 1 : CAJA CURSO GENERAL -->
-        <div class="bg-white rounded-2xl card-shadow border border-slate-200/80 overflow-hidden">
-          <div class="bg-purple-700 text-white px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <div>
-              <span class="text-[11px] uppercase tracking-wider font-bold text-purple-200">Fondo 1 &bull; Administración Directiva</span>
-              <h4 class="text-lg font-bold">Fondo 1 : Caja curso general</h4>
-            </div>
-            <div class="bg-white/15 px-3.5 py-1.5 rounded-xl text-sm font-bold">
-              Saldo Final: $303.253
-            </div>
-          </div>
-          <div class="scroll-x-touch">
-            <table class="w-full text-left border-collapse text-sm min-w-[580px]">
-              <thead>
-                <tr class="bg-slate-900 text-white text-xs uppercase tracking-wider">
-                  <th class="py-3 px-5 font-semibold">Ítem</th>
-                  <th class="py-3 px-5 font-semibold text-right">Ingresos</th>
-                  <th class="py-3 px-5 font-semibold text-right">Egresos</th>
-                  <th class="py-3 px-5 font-semibold text-right">Subtotal</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100">
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Remanente directiva 2025</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$60.833</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$60.833</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Cuota anual 1° medio B 2025 (3 cuotas pendientes)</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$30.000</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$30.000</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Cuota anual 2° medio B 2026</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$300.000</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$300.000</td>
-                </tr>
-                <tr class="bg-red-50/40 hover:bg-red-50/70">
-                  <td class="py-3 px-5 font-medium text-slate-800">Regalo día del profesor</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-red-600">-$32.990</td>
-                  <td class="py-3 px-5 text-right font-semibold text-red-600">-$32.990</td>
-                </tr>
-                <tr class="bg-red-50/40 hover:bg-red-50/70">
-                  <td class="py-3 px-5 font-medium text-slate-800">Insumos convivencia 18-06-2026 (previo a vacaciones de invierno)</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-red-600">-$5.500</td>
-                  <td class="py-3 px-5 text-right font-semibold text-red-600">-$5.500</td>
-                </tr>
-                <tr class="bg-red-50/40 hover:bg-red-50/70">
-                  <td class="py-3 px-5 font-medium text-slate-800">Insumos convivencia 11-09-2026 (previo a fiestas patrias)</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-red-600">-$41.600</td>
-                  <td class="py-3 px-5 text-right font-semibold text-red-600">-$41.600</td>
-                </tr>
-                <tr class="bg-red-50/40 hover:bg-red-50/70">
-                  <td class="py-3 px-5 font-medium text-slate-800">Insumos convivencia 09-10-2026 (Aniversario del colegio)</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-red-600">-$7.490</td>
-                  <td class="py-3 px-5 text-right font-semibold text-red-600">-$7.490</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr class="bg-slate-900 text-white font-bold">
-                  <td class="py-3.5 px-5 text-right uppercase text-xs tracking-wider">Total Fondo 1 : Caja curso general</td>
-                  <td class="py-3.5 px-5 text-right text-amber-300">$390.833</td>
-                  <td class="py-3.5 px-5 text-right text-red-300">-$87.580</td>
-                  <td class="py-3.5 px-5 text-right text-emerald-400 text-base">$303.253</td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-        </div>
-
-        <!-- TABLA 2: FONDO 2 : CAJA GIRA DE ESTUDIOS + DETALLE INDIVIDUAL -->
-        <div class="bg-white rounded-2xl card-shadow border border-slate-200/80 overflow-hidden">
-          <div class="bg-emerald-700 text-white px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <div>
-              <span class="text-[11px] uppercase tracking-wider font-bold text-emerald-200">Fondo 2 &bull; Actividades Gira</span>
-              <h4 class="text-lg font-bold">Fondo 2 : Caja gira de estudios</h4>
-            </div>
-            <div class="bg-white/15 px-3.5 py-1.5 rounded-xl text-sm font-bold">
-              Saldo Final: $5.340.208
-            </div>
-          </div>
-          <div class="scroll-x-touch">
-            <table class="w-full text-left border-collapse text-sm min-w-[580px]">
-              <thead>
-                <tr class="bg-slate-900 text-white text-xs uppercase tracking-wider">
-                  <th class="py-3 px-5 font-semibold">Ítem</th>
-                  <th class="py-3 px-5 font-semibold text-right">Ingresos</th>
-                  <th class="py-3 px-5 font-semibold text-right">Egresos</th>
-                  <th class="py-3 px-5 font-semibold text-right">Subtotal</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100">
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Recaudación 2025 gira estudio</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$295.000</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$295.000</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Rifa en reunión Apo. 04-11-2025</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$180.000</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$180.000</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Bingo 08-11-2025</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$328.548</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$328.548</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Feria de las pulgas 09-03-2026</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$74.000</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$74.000</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Once reuApo 24-03-2026</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$84.700</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$84.700</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Rifa en reunión Apo. 24-03-2026</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$170.000</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$170.000</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Show de talento 08-05-2026</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$793.938</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$793.938</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Rifa en reunión Apo. 26-05-2026</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$170.000</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$170.000</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Rifa en reunión Apo. 28-07-2026</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$180.000</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$180.000</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Peña 05-09-2026</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$852.036</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$852.036</td>
-                </tr>
-                <tr class="bg-sky-50/60 hover:bg-sky-50">
-                  <td class="py-3 px-5 font-semibold text-slate-800">Cupo(s) liberado(s) gira 2026</td>
-                  <td class="py-3 px-5 text-right font-bold text-sky-700">$1.985.000</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-bold text-slate-800">$1.985.000</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Rifa en reunión Apo. 24-11-2026</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$170.000</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$170.000</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Once reuApo 24-11-2026</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$129.250</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$129.250</td>
-                </tr>
-                <tr class="bg-emerald-50/70 hover:bg-emerald-50">
-                  <td class="py-3 px-5 font-semibold text-slate-800">Rentabilidad cuenta bancaria prioridad gira de estudios</td>
-                  <td class="py-3 px-5 text-right font-bold text-emerald-700">$51.800</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-bold text-slate-800">$51.800</td>
-                </tr>
-                <tr class="bg-red-50/70 hover:bg-red-50">
-                  <td class="py-3 px-5 font-semibold text-slate-800">Descuentos</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-bold text-red-600">-$124.064</td>
-                  <td class="py-3 px-5 text-right font-bold text-red-600">-$124.064</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr class="bg-slate-900 text-white font-bold">
-                  <td class="py-3.5 px-5 text-right uppercase text-xs tracking-wider">Total Fondo 2 : Caja gira de estudios</td>
-                  <td class="py-3.5 px-5 text-right text-amber-300">$5.464.272</td>
-                  <td class="py-3.5 px-5 text-right text-red-300">-$124.064</td>
-                  <td class="py-3.5 px-5 text-right text-emerald-400 text-base">$5.340.208</td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-
-          <!-- DETALLE INDIVIDUAL INTEGRADO EN FONDO 2 -->
-          <div class="bg-slate-50/80 border-t-2 border-emerald-200 p-6 space-y-4">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <div>
-                <span class="text-[11px] uppercase tracking-wider font-bold text-emerald-700">Cuenta Individual por Alumno &bull; Fondo 2</span>
-                <h5 class="text-base sm:text-lg font-extrabold text-slate-800">Detalle Individual • Caja Gira de Estudios</h5>
-              </div>
-              <div class="bg-emerald-100 text-emerald-900 border border-emerald-300 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold">
-                Saldo Final Gira: $5.340.208
-              </div>
-            </div>
-
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              A continuación se detalla el aporte acumulado por cada alumno en las actividades de recaudación de la <strong>Caja Gira de Estudios</strong>, el ítem <strong>Descuentos (-$124.064)</strong> aplicado y su saldo final individual. En celular, desliza horizontalmente la grilla para revisar todas las columnas.
-            </p>
-
-            <div class="scroll-x-touch rounded-xl border border-slate-200 bg-white">
-              <table id="gira-individual-table" class="w-full text-left border-collapse text-xs whitespace-nowrap min-w-[2450px]">
-                <thead id="gira-individual-head"></thead>
-                <tbody id="gira-individual-body" class="divide-y divide-slate-100 text-slate-700"></tbody>
-                <tfoot id="gira-individual-foot"></tfoot>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <!-- TABLA 3: FONDO 3 : CAJA ALUMNOS + OBSERVACIÓN ESPECÍFICA -->
-        <div class="bg-white rounded-2xl card-shadow border border-slate-200/80 overflow-hidden">
-          <div class="bg-sky-700 text-white px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <div>
-              <span class="text-[11px] uppercase tracking-wider font-bold text-sky-200">Fondo 3 &bull; Fondo Estudiantil</span>
-              <h4 class="text-lg font-bold">Fondo 3 : Caja alumnos</h4>
-            </div>
-            <div class="bg-white/15 px-3.5 py-1.5 rounded-xl text-sm font-bold">
-              Saldo Final: $741.514
-            </div>
-          </div>
-
-          <div class="scroll-x-touch">
-            <table class="w-full text-left border-collapse text-sm min-w-[580px]">
-              <thead>
-                <tr class="bg-slate-900 text-white text-xs uppercase tracking-wider">
-                  <th class="py-3 px-5 font-semibold">Ítem</th>
-                  <th class="py-3 px-5 font-semibold text-right">Ingresos</th>
-                  <th class="py-3 px-5 font-semibold text-right">Egresos</th>
-                  <th class="py-3 px-5 font-semibold text-right">Subtotal</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100">
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Once 3ra. Reunión apoderados 28-07-2026</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$53.500</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$53.500</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Venta de globos 14-08-2026</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$142.750</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$142.750</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Jeans Day año 2026</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$118.390</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$118.390</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Saldo cuotas año 2025</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$290.000</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$290.000</td>
-                </tr>
-                <tr class="hover:bg-slate-50/80">
-                  <td class="py-3 px-5 font-medium text-slate-800">Ahorro directiva alumnos 2025</td>
-                  <td class="py-3 px-5 text-right font-semibold text-emerald-700">$136.874</td>
-                  <td class="py-3 px-5 text-right text-slate-400">—</td>
-                  <td class="py-3 px-5 text-right font-semibold text-slate-800">$136.874</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr class="bg-slate-900 text-white font-bold">
-                  <td class="py-3.5 px-5 text-right uppercase text-xs tracking-wider">Total Fondo 3 : Caja alumnos</td>
-                  <td class="py-3.5 px-5 text-right text-amber-300">$741.514</td>
-                  <td class="py-3.5 px-5 text-right text-slate-300">$0</td>
-                  <td class="py-3.5 px-5 text-right text-emerald-400 text-base">$741.514</td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-
-          <!-- OBSERVACIÓN EXCLUSIVA CAJA ALUMNOS -->
-          <div class="bg-amber-50/90 border-t-2 border-amber-300 p-6">
-            <div class="flex items-start gap-3">
-              <div class="bg-amber-500 text-white p-1.5 rounded-lg shrink-0 mt-0.5">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
-                </svg>
-              </div>
-              <div class="space-y-3 text-sm text-slate-800 leading-relaxed text-justify">
-                <div class="flex flex-wrap items-center gap-2">
-                  <h5 class="font-extrabold text-amber-900 uppercase tracking-wide text-xs">
-                    Observación Exclusiva &bull; Fondo 3 : Caja alumnos ($741.514)
-                  </h5>
-                  <span class="bg-amber-200/80 text-amber-900 text-[11px] font-bold px-2.5 py-0.5 rounded-full">
-                    Acuerdo Reunión 24-11-2026
-                  </span>
-                </div>
-
-                <p class="obs-indent">
-                  Debido a que en la reunión de apoderados del 24-11-2026 no quedó claro que la Directiva de Apoderados 2026 no le dará ningún destino a la Caja de Alumnos, ni tampoco la administrará —y menos aún pasará por encima de las decisiones del curso y su directiva de alumnos 2026—, sino que la intención era resguardarla por seguridad en la cuenta bancaria del curso, y considerando además la petición especial del profesor Marcelo Cortés, quien solicitó a la directiva de apoderados devolver el dinero del ítem <em>Saldo cuotas año 2025</em> (ya que no todos los alumnos pagaron dichas cuotas), esto último fue rechazado mediante votación por la mayoría de los apoderados presentes, bajo el compromiso de que quienes no han pagado las cuotas o mantienen cuotas pendientes se pongan al día, dado que se trata de un fondo o caja común de los alumnos de carácter equitativo y no solidario.
-                </p>
-
-                <p class="obs-indent">
-                  Adicionalmente, por votación de la mayoría de los presentes en la misma reunión, se decidió no devolver el dinero de los ítems <em>Venta de globos 14-08-2026</em> y <em>Once 3ra. reunión de apoderados 28-07-2026</em>, conservándolo en la Caja de Alumnos.
-                </p>
-
-                <p class="obs-indent font-medium text-slate-900 bg-white/80 p-3.5 rounded-xl border border-amber-200">
-                  Dicho todo lo anterior, y para que no se sigan presentando interpretaciones equívocas respecto de las gestiones de la Directiva de Apoderados 2026, se ha decidido devolver en efectivo al profesor Marcelo Cortés la totalidad del dinero de la Caja de Alumnos, cuyo monto asciende a <strong class="text-sky-800 font-extrabold">$741.514</strong>, entrega que se realizará el <strong>lunes 30-11-2026</strong>.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      <!-- AVISO CIERRE Y TRASPASO DIRECTIVA 2027 -->
-      <section class="bg-pac-navy text-white rounded-2xl p-6 card-shadow border-l-4 border-pac-gold">
-        <div class="flex items-start gap-4">
-          <div class="bg-pac-gold/20 text-pac-gold p-2.5 rounded-xl shrink-0">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <div>
-            <h4 class="text-base font-bold text-pac-gold uppercase tracking-wide">Información Importante &bull; Proceso 2027</h4>
-            <p class="text-sm text-slate-100 mt-1.5 leading-relaxed">
-              Se informa a toda la comunidad del curso que en la <strong>primera reunión de apoderados del próximo año 2027</strong> se realizará formalmente el <strong>traspaso de la rendición de tesorería</strong>, así como también se definirá y elegirá la <strong>nueva Directiva de Apoderados 2027</strong>.
-            </p>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- PIE DE PÁGINA -->
-    <footer class="bg-white border-t border-slate-200 py-5 mt-8">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
-        <p class="font-semibold text-slate-700">Directiva de Apoderados 2026 &bull; 2° Medio B &bull; Pan American College</p>
-        <p>Presidenta: Myriam Arias &bull; Asesor: Juan Bello &bull; Prof. Jefe: Marcelo Cortés</p>
       </div>
-    </footer>
+    </section>
 
-  </div>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="bg-white border-t border-slate-200 py-5 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+      <p class="font-semibold text-slate-700">Directiva de Apoderados 2026 &bull; 2° Medio B &bull; Pan American College</p>
+      <p>Presidenta: Myriam Arias &bull; Asesor: Juan Bello &bull; Prof. Jefe: Marcelo Cortés</p>
+    </div>
+  </footer>
 
   <script>
-    // Columnas de actividades, descuentos y saldo final de Caja Gira de Estudios
     const COLUMNAS_GIRA = [
       'Recaudación 2025 gira estudio',
       'Rifa en reunión Apo. 04-11-2025',
@@ -741,7 +650,6 @@
       'CAJA GIRA DE ESTUDIOS'
     ];
 
-    // Datos de los 30 alumnos: [#, nombre, col1..col14, descuentos, saldo_final]
     const ALUMNOS_GIRA = [
       [1, 'AMANDA LUZ ALIAGA JARA', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       [2, 'CRISTIAN MAXIMILIANO ALLENDES OLIVARES', 15526, 10000, 21903, 4933, 3388, 10000, 44736, 10000, 10000, 46339, 110278, 10000, 7181, 2590, 0, 306874],
@@ -775,102 +683,65 @@
       [30, 'SOFÍA VALERIA SANABRIA CONTRERAS', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     ];
 
-    // Totales oficiales por columna de Caja Gira de Estudios
     const TOTALES_GIRA_COL = [
       295000, 180000, 328548, 74000, 84700, 170000, 793938, 170000,
       180000, 852036, 1985000, 170000, 129250, 51800, -124064, 5340208
     ];
 
-    // Formateo de moneda en pesos chilenos
     const fmtCLP = (n) => {
       if (n === 0) return '$0';
       return n < 0 ? `-$${Math.abs(n).toLocaleString('es-CL')}` : `$${n.toLocaleString('es-CL')}`;
     };
 
-    // Cambia entre vista de escritorio y marco de celular para probar el desplazamiento horizontal
-    function setPreviewMode(mode) {
-      try {
-        const wrapper = document.getElementById('preview-wrapper');
-        const btnEsc = document.getElementById('btn-vista-escritorio');
-        const btnMov = document.getElementById('btn-vista-movil');
+    const headEl = document.getElementById('gira-individual-head');
+    headEl.innerHTML = `
+      <tr class="bg-slate-900 text-white uppercase tracking-wider">
+        <th class="py-3 px-2.5 font-semibold w-10 text-center bg-slate-900">#</th>
+        <th class="py-3 px-3 font-semibold min-w-[210px] bg-slate-900">Nombre y Apellido Alumn@</th>
+        ${COLUMNAS_GIRA.map((col) => {
+          const isDesc = col === 'Descuentos';
+          const isFinal = col === 'CAJA GIRA DE ESTUDIOS';
+          const cls = isDesc ? 'bg-red-900 text-red-100' : isFinal ? 'bg-emerald-800 text-white' : '';
+          return `<th class="py-3 px-3 font-semibold text-right min-w-[125px] ${cls}">${col}</th>`;
+        }).join('')}
+      </tr>
+    `;
 
-        if (!wrapper || !btnEsc || !btnMov) return;
+    const bodyEl = document.getElementById('gira-individual-body');
+    bodyEl.innerHTML = ALUMNOS_GIRA.map((row, idx) => {
+      const [num, nombre, ...vals] = row;
+      const bgRow = idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/80';
+      return `
+        <tr class="${bgRow} hover:bg-sky-50/70">
+          <td class="py-2.5 px-2.5 text-center font-semibold text-slate-500 ${bgRow}">${num}</td>
+          <td class="py-2.5 px-3 font-semibold text-slate-800 ${bgRow}">${nombre}</td>
+          ${vals.map((val, cIdx) => {
+            const isDesc = cIdx === 14;
+            const isFinal = cIdx === 15;
+            let cls = 'text-slate-600';
+            if (val < 0) cls = 'font-bold text-red-600 bg-red-50/70';
+            else if (isDesc) cls = 'text-slate-400';
+            else if (isFinal) cls = 'font-extrabold text-emerald-800 bg-emerald-50/70';
+            else if (val > 0) cls = 'font-medium text-slate-800';
+            return `<td class="py-2.5 px-3 text-right tabular-nums ${cls}">${fmtCLP(val)}</td>`;
+          }).join('')}
+        </tr>
+      `;
+    }).join('');
 
-        if (mode === 'movil') {
-          wrapper.classList.add('preview-mobile-frame', 'my-6');
-          btnMov.className = 'px-3 py-1 rounded-lg font-semibold bg-pac-gold text-slate-950 transition cursor-pointer';
-          btnEsc.className = 'px-3 py-1 rounded-lg font-semibold text-slate-300 hover:text-white transition cursor-pointer';
-        } else {
-          wrapper.classList.remove('preview-mobile-frame', 'my-6');
-          btnEsc.className = 'px-3 py-1 rounded-lg font-semibold bg-pac-gold text-slate-950 transition cursor-pointer';
-          btnMov.className = 'px-3 py-1 rounded-lg font-semibold text-slate-300 hover:text-white transition cursor-pointer';
-        }
-      } catch (err) {
-        console.error('Error al alternar modo de vista previa:', err);
-      }
-    }
-
-    // Construye y puebla la tabla de cuentas individuales de los 30 alumnos
-    function renderGiraIndividual() {
-      try {
-        const headEl = document.getElementById('gira-individual-head');
-        const bodyEl = document.getElementById('gira-individual-body');
-        const footEl = document.getElementById('gira-individual-foot');
-
-        if (!headEl || !bodyEl || !footEl) return;
-
-        headEl.innerHTML = `
-          <tr class="bg-slate-900 text-white uppercase tracking-wider">
-            <th class="py-3 px-2 font-semibold text-center sticky-num bg-slate-900">#</th>
-            <th class="py-3 px-3 font-semibold sticky-name bg-slate-900 truncate sm:whitespace-nowrap">Nombre y Apellido Alumn@</th>
-            ${COLUMNAS_GIRA.map((col) => {
-              const isDesc = col === 'Descuentos';
-              const isFinal = col === 'CAJA GIRA DE ESTUDIOS';
-              const cls = isDesc ? 'bg-red-900 text-red-100' : isFinal ? 'bg-emerald-800 text-white' : '';
-              return `<th class="py-3 px-3 font-semibold text-right min-w-[130px] ${cls}">${col}</th>`;
-            }).join('')}
-          </tr>
-        `;
-
-        bodyEl.innerHTML = ALUMNOS_GIRA.map((row, idx) => {
-          const [num, nombre, ...vals] = row;
-          const bgRow = idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/80';
-          return `
-            <tr class="${bgRow} hover:bg-sky-50/70">
-              <td class="py-2.5 px-2 text-center font-semibold text-slate-500 sticky-num ${bgRow}">${num}</td>
-              <td class="py-2.5 px-3 font-semibold text-slate-800 sticky-name ${bgRow} truncate sm:whitespace-nowrap">${nombre}</td>
-              ${vals.map((val, cIdx) => {
-                const isDesc = cIdx === 14;
-                const isFinal = cIdx === 15;
-                let cls = 'text-slate-600';
-                if (val < 0) cls = 'font-bold text-red-600 bg-red-50/70';
-                else if (isDesc) cls = 'text-slate-400';
-                else if (isFinal) cls = 'font-extrabold text-emerald-800 bg-emerald-50/70';
-                else if (val > 0) cls = 'font-medium text-slate-800';
-                return `<td class="py-2.5 px-3 text-right tabular-nums ${cls}">${fmtCLP(val)}</td>`;
-              }).join('')}
-            </tr>
-          `;
-        }).join('');
-
-        footEl.innerHTML = `
-          <tr class="bg-slate-900 text-white font-bold text-xs">
-            <td class="py-3.5 px-2 sticky-num bg-slate-900"></td>
-            <td class="py-3.5 px-3 uppercase tracking-wider sticky-name bg-slate-900 truncate sm:whitespace-nowrap">Total por Ítem / Gira</td>
-            ${TOTALES_GIRA_COL.map((tot, idx) => {
-              const isDesc = idx === 14;
-              const isFinal = idx === 15;
-              const cls = isDesc ? 'text-red-300 bg-red-950/60' : isFinal ? 'text-emerald-200 bg-emerald-800 text-sm' : 'text-emerald-300';
-              return `<td class="py-3.5 px-3 text-right tabular-nums ${cls}">${fmtCLP(tot)}</td>`;
-            }).join('')}
-          </tr>
-        `;
-      } catch (err) {
-        console.error('Error al renderizar tabla individual de gira:', err);
-      }
-    }
-
-    window.addEventListener('DOMContentLoaded', renderGiraIndividual);
+    const footEl = document.getElementById('gira-individual-foot');
+    footEl.innerHTML = `
+      <tr class="bg-slate-900 text-white font-bold text-xs">
+        <td class="py-3.5 px-2.5 bg-slate-900"></td>
+        <td class="py-3.5 px-3 uppercase tracking-wider bg-slate-900">Total por Ítem / Gira</td>
+        ${TOTALES_GIRA_COL.map((tot, idx) => {
+          const isDesc = idx === 14;
+          const isFinal = idx === 15;
+          const cls = isDesc ? 'text-red-300 bg-red-950/60' : isFinal ? 'text-emerald-200 bg-emerald-800 text-sm' : 'text-emerald-300';
+          return `<td class="py-3.5 px-3 text-right tabular-nums ${cls}">${fmtCLP(tot)}</td>`;
+        }).join('')}
+      </tr>
+    `;
   </script>
 </body>
 </html>
