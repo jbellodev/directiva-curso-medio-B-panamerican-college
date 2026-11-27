@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendición de Cuentas Tesorería 2026 • 2° Medio B • Pan American College</title>
+    <!-- Tailwind CSS para diseño responsivo moderno -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js para gráficos interactivos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        pac: {
+                            navy: '#0F2B4C',
+                            navyLight: '#1A3F6B',
+                            cyan: '#4FB3BF',
+                            blue: '#1E88E5',
+                            gold: '#D4AF37',
+                            crimson: '#C62828',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F1F5F9;
+            color: #0F172A;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Ocultar barra de scroll horizontal en pestañas móviles manteniendo funcionalidad */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.25s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- NOTIFICACIÓN FLOTANTE (TOAST) -->
+    <div id="toast" class="fixed bottom-5 right-5 left-5 sm:left-auto sm:w-96 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-pac-navy text-white px-4 py-3.5 rounded-2xl shadow-2xl border border-white/15 flex items-center gap-3">
+            <div id="toast-icon" class="bg-emerald-500/20 text-emerald-300 p-2 rounded-xl shrink-0">
+                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+            </div>
+            <div class="text-sm font-medium leading-snug" id="toast-message">Acción completada</div>
+        </div>
+    </div>
+
+    <!-- ENCABEZADO INSTITUCIONAL -->
+    <header class="bg-gradient-to-br from-[#0B203A] via-[#0F2B4C] to-[#163B66] text-white shadow-lg border-b-4 border-[#D4AF37]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                
+                <!-- Escudo SVG + Título Principal -->
+                <div class="flex items-center gap-4 sm:gap-5">
+                    <!-- Escudo Pan American College (Recreación Vectorial) -->
+                    <div class="w-20 h-24 sm:w-24 sm:h-28 shrink-0 bg-white/95 rounded-2xl p-1.5 shadow-md flex items-center justify-center border border-[#D4AF37]/60">
+                        <svg viewBox="0 0 200 230" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-label="Escudo Pan American College">
+                            <!-- Arco Superior -->
+                            <defs>
+                                <path id="topArc" d="M 22,95 A 82,82 0 0,1 178,95" />
+                                <path id="botArc" d="M 28,175 A 85,85 0 0,0 172,175" />
+                            </defs>
+                            <text fill="#0F2B4C" font-size="14.5" font-weight="800" letter-spacing="1.2">
+                                <textPath href="#topArc" startOffset="50%" text-anchor="middle">PAN AMERICAN COLLEGE</textPath>
+                            </text>
+                            <!-- Dos Estrellas Doradas -->
+                            <polygon points="78,34 81,42 90,42 83,47 85,55 78,50 71,55 73,47 66,42 75,42" fill="#D4AF37"/>
+                            <polygon points="122,34 125,42 134,42 127,47 129,55 122,50 115,55 117,47 110,42 119,42" fill="#D4AF37"/>
+                            <!-- Escudo Azul Marino -->
+                            <path d="M 42,64 Q 70,74 100,58 Q 130,74 158,64 L 152,125 C 150,165 125,186 100,196 C 75,186 50,165 48,125 Z" fill="#0F2B4C"/>
+                            <!-- Texto Interno Escudo -->
+                            <text x="100" y="79" fill="#FFFFFF" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="0.8">PAN</text>
+                            <text x="100" y="90" fill="#FFFFFF" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="0.8">AMERICAN</text>
+                            <!-- Corona y Antorcha -->
+                            <g stroke="#7FD1D8" stroke-width="2" stroke-linecap="round">
+                                <line x1="100" y1="108" x2="100" y2="96"/>
+                                <line x1="91" y1="111" x2="83" y2="101"/>
+                                <line x1="109" y1="111" x2="117" y2="101"/>
+                                <line x1="86" y1="118" x2="76" y2="113"/>
+                                <line x1="114" y1="118" x2="124" y2="113"/>
+                            </g>
+                            <!-- Llama Roja -->
+                            <path d="M 62,82 C 57,74 60,66 64,62 C 64,67 68,69 68,64 C 72,69 72,77 67,82 Z" fill="#C62828"/>
+                            <rect x="61" y="82" width="8" height="4" rx="1" fill="#7FD1D8"/>
+                            <!-- Brazo y Túnica Estatua -->
+                            <path d="M 63,86 L 78,122 L 114,122 L 122,166 L 76,166 L 78,132 L 58,90 Z" fill="#7FD1D8"/>
+                            <!-- Rostro -->
+                            <ellipse cx="100" cy="117" rx="8" ry="10" fill="#FFFFFF"/>
+                            <path d="M 96,115 Q 100,113 104,115 M 100,115 L 100,120 M 97,123 L 103,123" stroke="#0F2B4C" stroke-width="1.3" fill="none"/>
+                            <!-- Pliegues Túnica -->
+                            <path d="M 86,128 L 83,165 M 95,128 L 94,165 M 104,128 L 106,165 M 112,128 L 116,165" stroke="#0F2B4C" stroke-width="2"/>
+                            <!-- Libro Blanco -->
+                            <polygon points="116,136 134,136 128,154 110,154" fill="#FFFFFF" stroke="#0F2B4C" stroke-width="1.5"/>
+                            <!-- Texto Inferior Escudo -->
+                            <text x="100" y="180" fill="#FFFFFF" font-size="11.5" font-weight="800" text-anchor="middle" letter-spacing="1">COLLEGE</text>
+                            <!-- Arco Inferior -->
+                            <text fill="#0F2B4C" font-size="14" font-weight="800" letter-spacing="1">
+                                <textPath href="#botArc" startOffset="50%" text-anchor="middle">FUNDADO EN 1950</textPath>
+                            </text>
+                        </svg>
+                    </div>
+
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#D4AF37]/20 text-[#FDE68A] border border-[#D4AF37]/40">
+                                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Transparencia Directiva 2026
+                            </span>
+                            <span id="header-cutoff-badge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#4FB3BF]/20 text-[#BAE6FD] border border-[#4FB3BF]/40">
+                                <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Corte: 26 Noviembre 2026
+                            </span>
+                        </div>
+                        <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-white">
+                            Rendición de Cuentas Tesorería 2026
+                        </h1>
+                        <p class="text-sm sm:text-base text-sky-200 font-medium mt-0.5">
+                            2° Medio B • Pan American College • <span class="text-white">Prof. Jefe: Marcelo Cortes</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Directiva y Acciones Rápidas -->
+                <div class="flex flex-col sm:flex-row lg:flex-col items-stretch sm:items-center lg:items-end justify-between gap-3 border-t lg:border-t-0 border-white/10 pt-3 lg:pt-0">
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <div class="bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-xl border border-white/15 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-[#D4AF37]"></span>
+                            <span class="text-sky-200">Presidenta:</span>
+                            <strong class="text-white font-semibold">Myriam Arias</strong>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-xl border border-white/15 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-[#4FB3BF]"></span>
+                            <span class="text-sky-200">Asesor:</span>
+                            <strong class="text-white font-semibold">Juan Bello</strong>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button onclick="copyWhatsAppSummary()" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white shadow-sm transition active:scale-95">
+                            <i data-lucide="share-2" class="w-4 h-4"></i>
+                            Copiar Resumen WhatsApp
+                        </button>
+                        <button onclick="downloadUpdatedHTML()" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white/15 hover:bg-white/25 text-white border border-white/20 transition active:scale-95" title="Descarga este archivo HTML con cualquier cambio que hayas hecho en los gastos o caja general">
+                            <i data-lucide="download" class="w-4 h-4"></i>
+                            Guardar HTML
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+        <!-- BANNER CONSOLIDADO TOTAL -->
+        <section class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-start sm:items-center gap-3.5">
+                <div class="p-3 rounded-2xl bg-pac-navy text-white shrink-0">
+                    <i data-lucide="landmark" class="w-6 h-6 text-[#D4AF37]"></i>
+                </div>
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-slate-500">Patrimonio Total Consolidado (3 Fondos)</h2>
+                    <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mt-0.5">
+                        <span id="kpi-total-disponible" class="text-2xl sm:text-3xl font-extrabold text-pac-navy">$0</span>
+                        <span class="text-xs font-medium text-slate-500">
+                            (Ingresos: <span id="kpi-total-ingresos" class="font-semibold text-slate-700">$0</span> • Gastos: <span id="kpi-total-gastos" class="font-semibold text-rose-600">-$0</span>)
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 text-xs bg-slate-50 px-3.5 py-2.5 rounded-xl border border-slate-200 text-slate-600">
+                <i data-lucide="info" class="w-4 h-4 text-pac-blue shrink-0"></i>
+                <span>Cada caja tiene un destino exclusivo y no se mezclan entre sí.</span>
+            </div>
+        </section>
+
+        <!-- TARJETAS EJECUTIVAS DE LAS 3 CAJAS -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+            
+            <!-- FONDO 1: CAJA GIRA DE ESTUDIOS -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between transition hover:shadow-md">
+                <div>
+                    <div class="h-2 bg-teal-600"></div>
+                    <div class="p-5">
+                        <div class="flex items-start justify-between gap-2">
+                            <div>
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-50 text-teal-700 border border-teal-200">
+                                    <span class="w-2 h-2 rounded-full bg-teal-600"></span> Fondo 1 • Individualizado
+                                </span>
+                                <h3 class="text-lg font-bold text-slate-900 mt-2">Caja Gira de Estudios</h3>
+                                <p class="text-xs text-slate-500 mt-0.5">Fondo acumulado por cada alumno participante (20 alumnos activos).</p>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-teal-50 text-teal-600 shrink-0">
+                                <i data-lucide="plane" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 pt-4 border-t border-slate-100">
+                            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Saldo Disponible Actual</p>
+                            <p id="card-gira-disponible" class="text-2xl sm:text-3xl font-extrabold text-teal-700 mt-0.5">$5.286.408</p>
+                        </div>
+
+                        <div class="mt-4 space-y-1.5 text-xs bg-slate-50 p-3 rounded-xl">
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Total Recaudado (13 activ.):</span>
+                                <span id="card-gira-ingresos" class="font-bold text-slate-800">$5.286.408</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Gastos / Abonos Gira:</span>
+                                <span id="card-gira-gastos" class="font-bold text-rose-600">-$0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-5 py-3 bg-teal-50/50 border-t border-teal-100 flex justify-between items-center">
+                    <button onclick="switchTab('alumnos')" class="text-xs font-semibold text-teal-700 hover:text-teal-900 flex items-center gap-1">
+                        Ver saldo por alumno <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </button>
+                    <button onclick="switchTab('gastos', 'gira')" class="text-xs font-medium text-slate-500 hover:text-teal-700">
+                        + Registrar gasto
+                    </button>
+                </div>
+            </div>
+
+            <!-- FONDO 2: CAJA DE ALUMNOS -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between transition hover:shadow-md">
+                <div>
+                    <div class="h-2 bg-fuchsia-600"></div>
+                    <div class="p-5">
+                        <div class="flex items-start justify-between gap-2">
+                            <div>
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-fuchsia-50 text-fuchsia-700 border border-fuchsia-200">
+                                    <span class="w-2 h-2 rounded-full bg-fuchsia-600"></span> Fondo 2 • 30 Alumnos
+                                </span>
+                                <h3 class="text-lg font-bold text-slate-900 mt-2">Caja de Alumnos</h3>
+                                <p class="text-xs text-slate-500 mt-0.5">Beneficio directo estudiantil (convivencias, actividades alumnos).</p>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-fuchsia-50 text-fuchsia-600 shrink-0">
+                                <i data-lucide="users" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 pt-4 border-t border-slate-100">
+                            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Saldo Disponible Actual</p>
+                            <p id="card-alumnos-disponible" class="text-2xl sm:text-3xl font-extrabold text-fuchsia-700 mt-0.5">$314.640</p>
+                        </div>
+
+                        <div class="mt-4 space-y-1.5 text-xs bg-slate-50 p-3 rounded-xl">
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Total Recaudado (3 activ.):</span>
+                                <span id="card-alumnos-ingresos" class="font-bold text-slate-800">$314.640</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-500">Gastos Rendidos:</span>
+                                <span id="card-alumnos-gastos" class="font-bold text-rose-600">-$0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-5 py-3 bg-fuchsia-50/50 border-t border-fuchsia-100 flex justify-between items-center">
+                    <button onclick="switchTab('actividades', 'alumnos')" class="text-xs font-semibold text-fuchsia-700 hover:text-fuchsia-900 flex items-center gap-1">
+                        Ver actividades <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </button>
+                    <button onclick="switchTab('gastos', 'alumnos')" class="text-xs font-medium text-slate-500 hover:text-fuchsia-700">
+                        + Registrar gasto
+                    </button>
+                </div>
+            </div>
+
+            <!-- FONDO 3: CAJA GENERAL DEL CURSO -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between transition hover:shadow-md">
+                <div>
+                    <div class="h-2 bg-sky-600"></div>
+                    <div class="p-5">
+                        <div class="flex items-start justify-between gap-2">
+                            <div>
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-50 text-sky-700 border border-sky-200">
+                                    <span class="w-2 h-2 rounded-full bg-sky-600"></span> Fondo 3 • Uso Común
+                                </span>
+                                <h3 class="text-lg font-bold text-slate-900 mt-2">Caja General del Curso</h3>
+                                <p class="text-xs text-slate-500 mt-0.5">Cuotas y gastos generales (Día del Profesor, materiales, etc.).</p>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-sky-50 text-sky-600 shrink-0">
+                                <i data-lucide="wallet" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 pt-4 border-t border-slate-100">
+                            <div class="flex items-center justify-between">
+                                <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Saldo Disponible (Simulado)</p>
+                                <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800">Ejemplo editable</span>
+                            </div>
+                            <p id="card-general-disponible" class="text-2xl sm:text-3xl font-extrabold text-sky-700 mt-0.5">$345.000</p>
+                        </div>
+
+                        <div class="mt-4 space-y-1.5 text-xs bg-slate-50 p-3 rounded-xl">
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-500">Recaudación (Cuotas ej.):</span>
+                                <span id="card-general-ingresos" class="font-bold text-slate-800">$450.000</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-500">Gastos Rendidos (2 ítems):</span>
+                                <span id="card-general-gastos" class="font-bold text-rose-600">-$105.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-5 py-3 bg-sky-50/50 border-t border-sky-100 flex justify-between items-center">
+                    <button onclick="openEditGeneralModal()" class="text-xs font-semibold text-sky-700 hover:text-sky-900 flex items-center gap-1">
+                        <i data-lucide="edit-3" class="w-3.5 h-3.5"></i> Editar monto caja
+                    </button>
+                    <button onclick="switchTab('gastos', 'general')" class="text-xs font-medium text-slate-500 hover:text-sky-700">
+                        Ver gastos curso
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- NAVEGACIÓN POR PESTAÑAS (MÓVIL Y DESKTOP) -->
+        <nav class="bg-white p-1.5 rounded-2xl shadow-sm border border-slate-200 flex overflow-x-auto no-scrollbar gap-1.5" aria-label="Secciones de rendición">
+            <button id="tab-btn-resumen" onclick="switchTab('resumen')" class="tab-btn flex-1 min-w-[140px] flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition">
+                <i data-lucide="pie-chart" class="w-4 h-4"></i>
+                <span>Resumen & Gráficos</span>
+            </button>
+            <button id="tab-btn-actividades" onclick="switchTab('actividades')" class="tab-btn flex-1 min-w-[155px] flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition">
+                <i data-lucide="calendar-check-2" class="w-4 h-4"></i>
+                <span>Actividades (16)</span>
+            </button>
+            <button id="tab-btn-alumnos" onclick="switchTab('alumnos')" class="tab-btn flex-1 min-w-[155px] flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition">
+                <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                <span>Detalle Alumnos (30)</span>
+            </button>
+            <button id="tab-btn-gastos" onclick="switchTab('gastos')" class="tab-btn flex-1 min-w-[155px] flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition">
+                <i data-lucide="receipt" class="w-4 h-4"></i>
+                <span>Rendición de Gastos</span>
+            </button>
+        </nav>
+
+        <!-- ========================================================= -->
+        <!-- TAB 1: RESUMEN & GRÁFICOS                                 -->
+        <!-- ========================================================= -->
+        <section id="view-resumen" class="tab-view space-y-6 animate-fade-in">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <!-- Gráfico de Barras: Recaudación por Actividad -->
+                <div class="lg:col-span-2 bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <div>
+                            <h3 class="text-base sm:text-lg font-bold text-slate-900">Recaudación por Actividad</h3>
+                            <p class="text-xs text-slate-500">Comparativa de ingresos según la caja destino de cada evento</p>
+                        </div>
+                        <div class="flex flex-wrap gap-3 text-xs font-medium">
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-teal-600"></span> Caja Gira</span>
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-fuchsia-600"></span> Caja Alumnos</span>
+                        </div>
+                    </div>
+                    <div class="relative h-72 sm:h-80 w-full">
+                        <canvas id="activitiesChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Gráfico de Dona: Distribución de Fondos -->
+                <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900">Distribución Disponible</h3>
+                        <p class="text-xs text-slate-500 mb-4">Proporción actual entre los 3 fondos del curso</p>
+                    </div>
+                    <div class="relative h-60 w-full flex items-center justify-center">
+                        <canvas id="fundsDoughnutChart"></canvas>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 space-y-2 text-xs">
+                        <div class="flex items-center justify-between">
+                            <span class="flex items-center gap-2 text-slate-600"><span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span> Caja Gira Estudios</span>
+                            <span id="legend-pct-gira" class="font-bold text-slate-800">88.9%</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="flex items-center gap-2 text-slate-600"><span class="w-2.5 h-2.5 rounded-full bg-fuchsia-600"></span> Caja de Alumnos</span>
+                            <span id="legend-pct-alumnos" class="font-bold text-slate-800">5.3%</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="flex items-center gap-2 text-slate-600"><span class="w-2.5 h-2.5 rounded-full bg-sky-600"></span> Caja General Curso</span>
+                            <span id="legend-pct-general" class="font-bold text-slate-800">5.8%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nota Aclaratoria sobre Excel (#¡REF! y diferencias de suma) -->
+            <div class="bg-amber-50/90 border border-amber-200 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row gap-4 items-start">
+                <div class="p-2.5 bg-amber-100 text-amber-700 rounded-xl shrink-0">
+                    <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+                </div>
+                <div class="text-xs sm:text-sm text-amber-950 space-y-1.5">
+                    <h4 class="font-bold">Notas técnicas detectadas al migrar tu Excel:</h4>
+                    <ul class="list-disc pl-4 space-y-1 text-amber-900">
+                        <li><strong>Caja General del Curso:</strong> En tu planilla actual aparecía con error <code class="bg-amber-200/70 px-1.5 py-0.5 rounded font-mono text-xs">#¡REF!</code>. En esta maqueta cargamos un monto de ejemplo editable para que visualices cómo operará con sus cuotas y gastos.</li>
+                        <li><strong>Cuadratura Caja Gira:</strong> El total general de tu Excel indica <strong>$5.286.408</strong> (sumando los saldos individuales de los 20 alumnos participantes), mientras que la suma lineal de las 13 columnas visibles da $5.311.072 ($24.664 de diferencia por ajustes/cupos liberados). Mantenemos tu total oficial de <strong>$5.286.408</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- TAB 2: DESGLOSE DE ACTIVIDADES                            -->
+        <!-- ========================================================= -->
+        <section id="view-actividades" class="tab-view hidden space-y-5 animate-fade-in">
+            <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900">Bitácora de Actividades y Recaudaciones</h3>
+                    <p class="text-xs text-slate-500">Filtra por fondo para revisar el aporte de cada actividad realizada</p>
+                </div>
+                <div class="flex flex-wrap gap-1.5">
+                    <button onclick="filterActivities('all')" data-act-filter="all" class="act-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-pac-navy text-white transition">Todas (17)</button>
+                    <button onclick="filterActivities('gira')" data-act-filter="gira" class="act-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-teal-50 hover:text-teal-700 transition">Caja Gira (13)</button>
+                    <button onclick="filterActivities('alumnos')" data-act-filter="alumnos" class="act-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-fuchsia-50 hover:text-fuchsia-700 transition">Caja Alumnos (3)</button>
+                    <button onclick="filterActivities('general')" data-act-filter="general" class="act-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-sky-50 hover:text-sky-700 transition">Caja General</button>
+                </div>
+            </div>
+
+            <!-- Contenedor de tarjetas/tabla de actividades -->
+            <div id="activities-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Se puebla dinámicamente desde JS -->
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- TAB 3: DETALLE POR ALUMNO (30 ESTUDIANTES)                -->
+        <!-- ========================================================= -->
+        <section id="view-alumnos" class="tab-view hidden space-y-5 animate-fade-in">
+            <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900">Estado Individual por Alumno (Lista Oficial)</h3>
+                        <p class="text-xs text-slate-500">Toca cualquier alumno para ver su detalle individual y participación</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-2.5">
+                        <!-- Buscador -->
+                        <div class="relative">
+                            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+                            <input type="text" id="student-search" oninput="renderStudentsTable()" placeholder="Buscar alumno..." class="w-full sm:w-64 pl-9 pr-3 py-2 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-pac-navy/20 focus:border-pac-navy">
+                        </div>
+                        <!-- Filtro Gira -->
+                        <select id="student-filter" onchange="renderStudentsTable()" class="px-3 py-2 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-pac-navy font-medium text-slate-700">
+                            <option value="all">Todos los alumnos (30)</option>
+                            <option value="gira_si">Participan en Gira (20)</option>
+                            <option value="gira_no">No participan en Gira (10)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Tabla Responsiva -->
+                <div class="overflow-x-auto rounded-xl border border-slate-200">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-pac-navy text-white text-[11px] sm:text-xs uppercase tracking-wider">
+                                <th class="py-3 px-3 sm:px-4 w-12 text-center">N°</th>
+                                <th class="py-3 px-3 sm:px-4">Nombre y Apellido Alumno/a</th>
+                                <th class="py-3 px-3 sm:px-4 text-center hidden sm:table-cell">Estado Gira</th>
+                                <th class="py-3 px-3 sm:px-4 text-right bg-teal-900/60">Caja Gira</th>
+                                <th class="py-3 px-3 sm:px-4 text-right bg-fuchsia-900/60">Caja Alumnos</th>
+                                <th class="py-3 px-3 sm:px-4 text-right bg-sky-900/60 hidden md:table-cell">Caja General</th>
+                            </tr>
+                        </thead>
+                        <tbody id="students-table-body" class="divide-y divide-slate-100 text-xs sm:text-sm">
+                            <!-- Filas generadas por JS -->
+                        </tbody>
+                        <tfoot class="bg-slate-100 font-bold text-xs sm:text-sm text-slate-900 border-t-2 border-slate-300">
+                            <tr>
+                                <td colspan="2" class="py-3 px-4">TOTAL CONSOLIDADO CURSO</td>
+                                <td class="py-3 px-4 text-center hidden sm:table-cell text-xs text-slate-500">20 Activos</td>
+                                <td class="py-3 px-3 sm:px-4 text-right text-teal-700">$5.286.408</td>
+                                <td class="py-3 px-3 sm:px-4 text-right text-fuchsia-700">$314.640</td>
+                                <td id="table-foot-general" class="py-3 px-3 sm:px-4 text-right text-sky-700 hidden md:table-cell">$450.000</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- TAB 4: RENDICIÓN DE GASTOS POR CAJA                       -->
+        <!-- ========================================================= -->
+        <section id="view-gastos" class="tab-view hidden space-y-5 animate-fade-in">
+            <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900">Rendición de Egresos y Gastos por Fondo</h3>
+                    <p class="text-xs text-slate-500">Cada gasto se descuenta exclusivamente de la caja correspondiente</p>
+                </div>
+                <button onclick="openAddExpenseModal()" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-pac-navy hover:bg-pac-navyLight text-white shadow-sm transition active:scale-95">
+                    <i data-lucide="plus-circle" class="w-4 h-4 text-[#D4AF37]"></i>
+                    Registrar Nuevo Gasto
+                </button>
+            </div>
+
+            <!-- 3 Columnas de Gastos (Una por cada Caja) -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                
+                <!-- Gastos Caja General del Curso -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-sky-600 text-white px-4 py-3 flex items-center justify-between">
+                        <div class="flex items-center gap-2 font-bold text-sm">
+                            <i data-lucide="wallet" class="w-4 h-4"></i> Gastos Caja General Curso
+                        </div>
+                        <span id="expense-subtotal-general" class="text-xs font-extrabold bg-white/20 px-2.5 py-0.5 rounded-full">-$105.000</span>
+                    </div>
+                    <div id="expenses-list-general" class="p-4 space-y-3 flex-1">
+                        <!-- Items de gastos -->
+                    </div>
+                </div>
+
+                <!-- Gastos Caja de Alumnos -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-fuchsia-600 text-white px-4 py-3 flex items-center justify-between">
+                        <div class="flex items-center gap-2 font-bold text-sm">
+                            <i data-lucide="users" class="w-4 h-4"></i> Gastos Caja Alumnos
+                        </div>
+                        <span id="expense-subtotal-alumnos" class="text-xs font-extrabold bg-white/20 px-2.5 py-0.5 rounded-full">-$0</span>
+                    </div>
+                    <div id="expenses-list-alumnos" class="p-4 space-y-3 flex-1">
+                        <!-- Items de gastos -->
+                    </div>
+                </div>
+
+                <!-- Gastos Caja Gira de Estudios -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-teal-600 text-white px-4 py-3 flex items-center justify-between">
+                        <div class="flex items-center gap-2 font-bold text-sm">
+                            <i data-lucide="plane" class="w-4 h-4"></i> Gastos / Abonos Gira
+                        </div>
+                        <span id="expense-subtotal-gira" class="text-xs font-extrabold bg-white/20 px-2.5 py-0.5 rounded-full">-$0</span>
+                    </div>
+                    <div id="expenses-list-gira" class="p-4 space-y-3 flex-1">
+                        <!-- Items de gastos -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="bg-white border-t border-slate-200 mt-10 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <div class="text-center sm:text-left">
+                <p class="font-bold text-pac-navy">Directiva de Curso 2026 • 2° Medio B • Pan American College</p>
+                <p class="mt-0.5">Myriam Arias (Presidenta) • Juan Bello (Asesor) • Prof. Jefe: Marcelo Cortes</p>
+            </div>
+            <div class="text-center sm:text-right">
+                <p>Documento generado para difusión interna de apoderados y estudiantes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================================= -->
+    <!-- MODAL: DETALLE INDIVIDUAL DE ALUMNO                       -->
+    <!-- ========================================================= -->
+    <div id="student-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-xs p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden animate-fade-in">
+            <div class="bg-pac-navy text-white px-5 py-4 flex items-center justify-between">
+                <div>
+                    <span id="modal-st-num" class="text-xs font-bold text-[#D4AF37] uppercase tracking-wider">Alumno #01</span>
+                    <h4 id="modal-st-name" class="text-base sm:text-lg font-bold leading-snug mt-0.5">Nombre del Alumno</h4>
+                </div>
+                <button onclick="closeStudentModal()" class="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="p-5 space-y-4">
+                <div class="flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-200">
+                    <span class="text-xs font-semibold text-slate-600">Participación Gira de Estudios:</span>
+                    <span id="modal-st-badge" class="px-2.5 py-1 rounded-full text-xs font-bold">Participa</span>
+                </div>
+
+                <div class="space-y-2.5">
+                    <div class="p-3.5 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-teal-800">Fondo Caja Gira de Estudios</p>
+                            <p class="text-[11px] text-teal-600">Acumulado individual por actividades</p>
+                        </div>
+                        <span id="modal-st-gira" class="text-base font-extrabold text-teal-700">$0</span>
+                    </div>
+
+                    <div class="p-3.5 rounded-xl bg-fuchsia-50 border border-fuchsia-200 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-fuchsia-800">Fondo Caja de Alumnos</p>
+                            <p class="text-[11px] text-fuchsia-600">Cuota parte actividades estudiantiles</p>
+                        </div>
+                        <span id="modal-st-alumnos" class="text-base font-extrabold text-fuchsia-700">$0</span>
+                    </div>
+
+                    <div class="p-3.5 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-sky-800">Fondo Caja General Curso</p>
+                            <p class="text-[11px] text-sky-600">Fondo común (Ref. proporcional)</p>
+                        </div>
+                        <span id="modal-st-general" class="text-base font-extrabold text-sky-700">$15.000</span>
+                    </div>
+                </div>
+
+                <div class="pt-2 border-t border-slate-100 flex justify-between items-center">
+                    <span class="text-xs font-bold text-slate-500 uppercase">Total Aportado Alumno:</span>
+                    <span id="modal-st-total" class="text-lg font-extrabold text-pac-navy">$0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MODAL: REGISTRAR NUEVO GASTO                              -->
+    <!-- ========================================================= -->
+    <div id="expense-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-xs p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden animate-fade-in">
+            <div class="bg-pac-navy text-white px-5 py-4 flex items-center justify-between">
+                <h4 class="text-base font-bold flex items-center gap-2">
+                    <i data-lucide="receipt" class="w-4 h-4 text-[#D4AF37]"></i> Registrar Nuevo Egreso
+                </h4>
+                <button onclick="closeAddExpenseModal()" class="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form onsubmit="handleAddExpense(event)" class="p-5 space-y-4 text-sm">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Caja o Fondo de Cargo</label>
+                    <select id="exp-fund" required class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-pac-navy font-medium">
+                        <option value="general">Caja General del Curso (Celeste)</option>
+                        <option value="alumnos">Caja de Alumnos (Fucsia)</option>
+                        <option value="gira">Caja Gira de Estudios (Verde)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Concepto / Detalle del Gasto</label>
+                    <input type="text" id="exp-concept" required placeholder="Ej: Regalo Día del Profesor, Convivencia..." class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-pac-navy">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Monto ($ CLP)</label>
+                        <input type="number" id="exp-amount" required min="1" step="1" placeholder="Ej: 45000" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-pac-navy">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Fecha</label>
+                        <input type="date" id="exp-date" required value="2026-11-26" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-pac-navy">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Respaldo / Comprobante (Opcional)</label>
+                    <input type="text" id="exp-doc" placeholder="Ej: Boleta N° 4521 / Transferencia" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-pac-navy">
+                </div>
+                <div class="pt-2 flex justify-end gap-2">
+                    <button type="button" onclick="closeAddExpenseModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100">Cancelar</button>
+                    <button type="submit" class="px-4 py-2 rounded-xl text-xs font-semibold bg-pac-navy text-white hover:bg-pac-navyLight">Agregar Gasto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MODAL: EDITAR MONTO CAJA GENERAL (SIMULADOR)              -->
+    <!-- ========================================================= -->
+    <div id="general-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-xs p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden animate-fade-in">
+            <div class="bg-sky-700 text-white px-5 py-4 flex items-center justify-between">
+                <h4 class="text-base font-bold flex items-center gap-2">
+                    <i data-lucide="edit-3" class="w-4 h-4"></i> Configurar Caja General del Curso
+                </h4>
+                <button onclick="closeEditGeneralModal()" class="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form onsubmit="handleUpdateGeneralFund(event)" class="p-5 space-y-4 text-sm">
+                <p class="text-xs text-slate-600 bg-sky-50 p-3 rounded-xl border border-sky-100">
+                    Como en tu Excel la columna <strong>Caja General</strong> mostraba <code>#¡REF!</code>, aquí puedes ingresar el monto total recaudado real (ej. cuotas mensuales de apoderados) para actualizar todo el dashboard al instante.
+                </p>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Total Recaudado Caja General ($ CLP)</label>
+                    <input type="number" id="input-general-income" required min="0" step="1" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-sky-600 font-bold text-base">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Fecha de Corte del Informe</label>
+                    <input type="text" id="input-cutoff-date" required value="26 Noviembre 2026" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-sky-600">
+                </div>
+                <div class="pt-2 flex justify-end gap-2">
+                    <button type="button" onclick="closeEditGeneralModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-600 hover:bg-slate-100">Cancelar</button>
+                    <button type="submit" class="px-4 py-2 rounded-xl text-xs font-semibold bg-sky-600 text-white hover:bg-sky-700">Aplicar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- DATOS Y LÓGICA DE LA APLICACIÓN                           -->
+    <!-- ========================================================= -->
+    <script>
+        /**
+         * BASE DE DATOS CENTRALIZADA DEL CURSO (2° MEDIO B - 2026)
+         * Puedes editar directamente estos valores si deseas actualizar el archivo base.
+         */
+        const TREASURY_DATA = {
+            curso: "2° Medio B",
+            colegio: "Pan American College",
+            profesorJefe: "Marcelo Cortes",
+            directiva: {
+                presidenta: "Myriam Arias",
+                asesor: "Juan Bello"
+            },
+            fechaCorte: "26 Noviembre 2026",
+
+            // Totales oficiales recaudados por fondo
+            ingresosOficiales: {
+                gira: 5286408,     // Total oficial columna verde Excel
+                alumnos: 314640,   // Total oficial columna fucsia Excel
+                general: 450000    // Valor editable de ejemplo (reemplaza #¡REF!)
+            },
+
+            // Listado de actividades extraídas de las capturas 1 y 2
+            actividades: [
+                { id: 1, nombre: "Recaudación 2025 gira estudio", fecha: "2025", monto: 295000, caja: "gira", participantes: 19 },
+                { id: 2, nombre: "Rifa en reunión Apo.", fecha: "04-11-2025", monto: 180000, caja: "gira", participantes: 18 },
+                { id: 3, nombre: "Bingo 2025", fecha: "08-11-2025", monto: 328548, caja: "gira", participantes: 15 },
+                { id: 4, nombre: "Feria de las pulgas", fecha: "09-03-2026", monto: 74000, caja: "gira", participantes: 11 },
+                { id: 5, nombre: "Once reunión Apoderados", fecha: "24-03-2026", monto: 84700, caja: "gira", participantes: 16 },
+                { id: 6, nombre: "Rifa en reunión Apo.", fecha: "24-03-2026", monto: 170000, caja: "gira", participantes: 17 },
+                { id: 7, nombre: "Show de talento", fecha: "08-05-2026", monto: 793938, caja: "gira", participantes: 19 },
+                { id: 8, nombre: "Rifa en reunión Apo.", fecha: "26-05-2026", monto: 170000, caja: "gira", participantes: 17 },
+                { id: 9, nombre: "Rifa en reunión Apo.", fecha: "28-07-2026", monto: 180000, caja: "gira", participantes: 18 },
+                { id: 10, nombre: "Once reunión Apoderados", fecha: "28-07-2026", monto: 53500, caja: "alumnos", participantes: 30 },
+                { id: 11, nombre: "Venta de globos", fecha: "14-08-2026", monto: 142750, caja: "alumnos", participantes: 30 },
+                { id: 12, nombre: "Peña Folclórica", fecha: "05-09-2026", monto: 852036, caja: "gira", participantes: 19 },
+                { id: 13, nombre: "Jeans Day año 2026 (solo gira)", fecha: "2026", monto: 118390, caja: "alumnos", participantes: 18 },
+                { id: 14, nombre: "Cupo(s) liberado(s) gira 2026", fecha: "2026", monto: 1985000, caja: "gira", participantes: 18 },
+                { id: 15, nombre: "Rifa en reunión Apo.", fecha: "24-11-2026", monto: 170000, caja: "gira", participantes: 17 },
+                { id: 16, nombre: "Once reunión Apoderados", fecha: "24-11-2026", monto: 127250, caja: "gira", participantes: 18 },
+                { id: 17, nombre: "Cuotas Curso / Aportes Generales (Ejemplo)", fecha: "Mar-Nov 2026", monto: 450000, caja: "general", participantes: 30 }
+            ],
+
+            // Nómina oficial de los 30 estudiantes y sus saldos exactos de la Foto 3
+            alumnos: [
+                { num: 1, nombre: "AMANDA LUZ ALIAGA JARA", gira: 0, alumnos: 6542 },
+                { num: 2, nombre: "CRISTIAN MAXIMILIANO ALLENDES OLIVARES", gira: 304173, alumnos: 13119 },
+                { num: 3, nombre: "OSTYN ANTONIO ALMARZA FUENTES", gira: 0, alumnos: 6542 },
+                { num: 4, nombre: "SEBASTIÁN IGNACIO ANDRADE RAMIREZ", gira: 309255, alumnos: 13119 },
+                { num: 5, nombre: "FÉLIX IGNACIO ARAVENA GUAJARDO", gira: 277336, alumnos: 13119 },
+                { num: 6, nombre: "JOAQUÍN IGNACIO BELLO YAÑEZ", gira: 120567, alumnos: 6542 },
+                { num: 7, nombre: "GUSTAVO ANDRES CASTAÑEDA ARIAS", gira: 316655, alumnos: 13119 },
+                { num: 8, nombre: "CONSTANZA ISIDORA CONTRERAS VILLAGRA", gira: 267450, alumnos: 13119 },
+                { num: 9, nombre: "JOAQUÍN FELIPE DOMÍNGUEZ CHÁVEZ", gira: 0, alumnos: 6542 },
+                { num: 10, nombre: "ANTONIA VALENTINA ERICES DAZA", gira: 0, alumnos: 6542 },
+                { num: 11, nombre: "ISIDORA BELÉN FRAU RAMOS", gira: 305867, alumnos: 13119 },
+                { num: 12, nombre: "MATIAS FELIPE GONZALEZ NUÑEZ", gira: 299239, alumnos: 13119 },
+                { num: 13, nombre: "DIEGO ALEJANDRO GRILLO PEREZ", gira: 0, alumnos: 6542 },
+                { num: 14, nombre: "SEBASTIÁN ANTONIO HENRIQUEZ PIÑA", gira: 305867, alumnos: 13119 },
+                { num: 15, nombre: "GABRIEL ALEJANDRO ISAIAS LASSEN PONTILLO", gira: 271218, alumnos: 13119 },
+                { num: 16, nombre: "RAFAEL ELÍAS LEIVA VALENCIA", gira: 300933, alumnos: 13119 },
+                { num: 17, nombre: "RENATA SOFIE MARCHANT FICK", gira: 0, alumnos: 6542 },
+                { num: 18, nombre: "AMARO ANTONIO MORALES ADAM", gira: 305867, alumnos: 13119 },
+                { num: 19, nombre: "BENJAMIN MAXIMILIANO MORALES CEA", gira: 309255, alumnos: 13119 },
+                { num: 20, nombre: "JOAQUIN RODRIGO MORALES LOPEZ", gira: 189307, alumnos: 6542 },
+                { num: 21, nombre: "LUCAS JOAQUÍN MORENO SAAVEDRA", gira: 0, alumnos: 6542 },
+                { num: 22, nombre: "MATILDA ANTONIA NUÑEZ ACOSTA", gira: 245927, alumnos: 13119 },
+                { num: 23, nombre: "RENATO ALONSO OYANEDER HERNANDEZ", gira: 91031, alumnos: 13119 },
+                { num: 24, nombre: "FLORENCIA ANTONIA PADILLA ALDAY", gira: 313267, alumnos: 13119 },
+                { num: 25, nombre: "TOMAS ANTONIO RAMIREZ ROGER", gira: 306639, alumnos: 13119 },
+                { num: 26, nombre: "EMILIA ANTONIA RIVERA RIVERA", gira: 0, alumnos: 6542 },
+                { num: 27, nombre: "TOMAS ALEJANDRO SOTO MARCHANT", gira: 195547, alumnos: 13119 },
+                { num: 28, nombre: "JIAYI TAN", gira: 0, alumnos: 6542 },
+                { num: 29, nombre: "VALENTINA PATRICIA TONCIO ROJAS", gira: 251009, alumnos: 13119 },
+                { num: 30, nombre: "SOFÍA VALERIA SANABRIA CONTRERAS", gira: 0, alumnos: 6542 }
+            ],
+
+            // Gastos de ejemplo por caja (totalmente editables en la UI)
+            gastos: [
+                { id: 101, caja: "general", concepto: "Regalo Día del Profesor (Prof. Jefe y Docentes)", monto: 65000, fecha: "2026-10-16", respaldo: "Boleta #8841 (Ejemplo)" },
+                { id: 102, caja: "general", concepto: "Insumos Convivencia 1er Semestre", monto: 40000, fecha: "2026-07-03", respaldo: "Supermercado (Ejemplo)" }
+            ]
+        };
+
+        // Variables de estado de UI y Gráficos
+        let currentTab = 'resumen';
+        let currentActivityFilter = 'all';
+        let barChartInstance = null;
+        let doughnutChartInstance = null;
+
+        // Formateador de Peso Chileno ($X.XXX.XXX)
+        function formatCLP(value) {
+            const num = Math.round(Number(value) || 0);
+            return '$' + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        // Mostrar notificación Toast
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const msgEl = document.getElementById('toast-message');
+            msgEl.textContent = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3400);
+        }
+
+        // Calcular totales dinámicos (Ingresos - Gastos por cada caja)
+        function calculateTotals() {
+            const gastosGira = TREASURY_DATA.gastos.filter(g => g.caja === 'gira').reduce((acc, g) => acc + g.monto, 0);
+            const gastosAlumnos = TREASURY_DATA.gastos.filter(g => g.caja === 'alumnos').reduce((acc, g) => acc + g.monto, 0);
+            const gastosGeneral = TREASURY_DATA.gastos.filter(g => g.caja === 'general').reduce((acc, g) => acc + g.monto, 0);
+
+            const ingGira = TREASURY_DATA.ingresosOficiales.gira;
+            const ingAlumnos = TREASURY_DATA.ingresosOficiales.alumnos;
+            const ingGeneral = TREASURY_DATA.ingresosOficiales.general;
+
+            const dispGira = ingGira - gastosGira;
+            const dispAlumnos = ingAlumnos - gastosAlumnos;
+            const dispGeneral = ingGeneral - gastosGeneral;
+
+            return {
+                gira: { ingresos: ingGira, gastos: gastosGira, disponible: dispGira },
+                alumnos: { ingresos: ingAlumnos, gastos: gastosAlumnos, disponible: dispAlumnos },
+                general: { ingresos: ingGeneral, gastos: gastosGeneral, disponible: dispGeneral },
+                totalIngresos: ingGira + ingAlumnos + ingGeneral,
+                totalGastos: gastosGira + gastosAlumnos + gastosGeneral,
+                totalDisponible: dispGira + dispAlumnos + dispGeneral
+            };
+        }
+
+        // Actualizar toda la interfaz con los números actuales
+        function refreshDashboard() {
+            const totals = calculateTotals();
+
+            // Fecha de corte
+            document.getElementById('header-cutoff-badge').innerHTML = `<i data-lucide="calendar" class="w-3.5 h-3.5"></i> Corte: ${TREASURY_DATA.fechaCorte}`;
+
+            // Banner consolidado
+            document.getElementById('kpi-total-disponible').textContent = formatCLP(totals.totalDisponible);
+            document.getElementById('kpi-total-ingresos').textContent = formatCLP(totals.totalIngresos);
+            document.getElementById('kpi-total-gastos').textContent = '-' + formatCLP(totals.totalGastos);
+
+            // Tarjeta 1: Gira
+            document.getElementById('card-gira-disponible').textContent = formatCLP(totals.gira.disponible);
+            document.getElementById('card-gira-ingresos').textContent = formatCLP(totals.gira.ingresos);
+            document.getElementById('card-gira-gastos').textContent = '-' + formatCLP(totals.gira.gastos);
+
+            // Tarjeta 2: Alumnos
+            document.getElementById('card-alumnos-disponible').textContent = formatCLP(totals.alumnos.disponible);
+            document.getElementById('card-alumnos-ingresos').textContent = formatCLP(totals.alumnos.ingresos);
+            document.getElementById('card-alumnos-gastos').textContent = '-' + formatCLP(totals.alumnos.gastos);
+
+            // Tarjeta 3: General
+            document.getElementById('card-general-disponible').textContent = formatCLP(totals.general.disponible);
+            document.getElementById('card-general-ingresos').textContent = formatCLP(totals.general.ingresos);
+            const generalExpCount = TREASURY_DATA.gastos.filter(g => g.caja === 'general').length;
+            document.getElementById('card-general-gastos').textContent = '-' + formatCLP(totals.general.gastos);
+
+            // Porcentajes leyenda gráfico dona
+            const safeTotal = totals.totalDisponible > 0 ? totals.totalDisponible : 1;
+            document.getElementById('legend-pct-gira').textContent = ((Math.max(0, totals.gira.disponible) / safeTotal) * 100).toFixed(1) + '%';
+            document.getElementById('legend-pct-alumnos').textContent = ((Math.max(0, totals.alumnos.disponible) / safeTotal) * 100).toFixed(1) + '%';
+            document.getElementById('legend-pct-general').textContent = ((Math.max(0, totals.general.disponible) / safeTotal) * 100).toFixed(1) + '%';
+
+            // Actualizar actividad de ejemplo en Caja General
+            const genAct = TREASURY_DATA.actividades.find(a => a.caja === 'general');
+            if (genAct) genAct.monto = totals.general.ingresos;
+
+            // Pie de tabla alumnos
+            const footGen = document.getElementById('table-foot-general');
+            if (footGen) footGen.textContent = formatCLP(totals.general.ingresos);
+
+            renderActivities();
+            renderStudentsTable();
+            renderExpenses();
+            updateCharts(totals);
+            lucide.createIcons();
+        }
+
+        // Navegación entre pestañas
+        function switchTab(tabName, subFilter = null) {
+            currentTab = tabName;
+
+            // Actualizar botones
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-pac-navy', 'text-white', 'shadow-xs');
+                btn.classList.add('text-slate-600', 'hover:bg-slate-100');
+            });
+            const activeBtn = document.getElementById(`tab-btn-${tabName}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-slate-600', 'hover:bg-slate-100');
+                activeBtn.classList.add('bg-pac-navy', 'text-white', 'shadow-xs');
+            }
+
+            // Mostrar vista correspondiente
+            document.querySelectorAll('.tab-view').forEach(view => view.classList.add('hidden'));
+            const activeView = document.getElementById(`view-${tabName}`);
+            if (activeView) activeView.classList.remove('hidden');
+
+            if (tabName === 'actividades' && subFilter) {
+                filterActivities(subFilter);
+            }
+            if (tabName === 'gastos' && subFilter) {
+                openAddExpenseModal(subFilter);
+            }
+        }
+
+        // Renderizar tarjetas de Actividades
+        function filterActivities(filter) {
+            currentActivityFilter = filter;
+            document.querySelectorAll('.act-filter-btn').forEach(btn => {
+                const isSelected = btn.getAttribute('data-act-filter') === filter;
+                btn.className = isSelected
+                    ? 'act-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-pac-navy text-white transition'
+                    : 'act-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition';
+            });
+            renderActivities();
+        }
+
+        function renderActivities() {
+            const container = document.getElementById('activities-list');
+            const filtered = currentActivityFilter === 'all'
+                ? TREASURY_DATA.actividades
+                : TREASURY_DATA.actividades.filter(a => a.caja === currentActivityFilter);
+
+            const badgeStyles = {
+                gira: { label: 'Caja Gira Estudios', bg: 'bg-teal-50 text-teal-700 border-teal-200', border: 'border-l-4 border-l-teal-600', amountColor: 'text-teal-700' },
+                alumnos: { label: 'Caja de Alumnos', bg: 'bg-fuchsia-50 text-fuchsia-700 border-fuchsia-200', border: 'border-l-4 border-l-fuchsia-600', amountColor: 'text-fuchsia-700' },
+                general: { label: 'Caja General Curso', bg: 'bg-sky-50 text-sky-700 border-sky-200', border: 'border-l-4 border-l-sky-600', amountColor: 'text-sky-700' }
+            };
+
+            container.innerHTML = filtered.map(act => {
+                const style = badgeStyles[act.caja];
+                return `
+                    <div class="bg-white rounded-2xl p-4 shadow-xs border border-slate-200 ${style.border} flex flex-col justify-between gap-3 hover:shadow-md transition">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold border ${style.bg}">${style.label}</span>
+                                <span class="text-xs font-medium text-slate-400 flex items-center gap-1">
+                                    <i data-lucide="calendar" class="w-3 h-3"></i> ${act.fecha}
+                                </span>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug">${act.nombre}</h4>
+                        </div>
+                        <div class="pt-3 border-t border-slate-100 flex items-end justify-between">
+                            <div>
+                                <span class="text-[11px] text-slate-400 block">Aportes registrados</span>
+                                <span class="text-xs font-semibold text-slate-600">${act.participantes} alumnos</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-[11px] text-slate-400 block">Recaudación</span>
+                                <span class="text-lg font-extrabold ${style.amountColor}">${formatCLP(act.monto)}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            lucide.createIcons();
+        }
+
+        // Renderizar tabla de los 30 alumnos
+        function renderStudentsTable() {
+            const tbody = document.getElementById('students-table-body');
+            const search = (document.getElementById('student-search')?.value || '').toLowerCase().trim();
+            const filter = document.getElementById('student-filter')?.value || 'all';
+            const perStudentGeneral = Math.round(TREASURY_DATA.ingresosOficiales.general / 30);
+
+            const filtered = TREASURY_DATA.alumnos.filter(st => {
+                const matchesName = st.nombre.toLowerCase().includes(search) || String(st.num) === search;
+                const participaGira = st.gira > 0;
+                if (filter === 'gira_si' && !participaGira) return false;
+                if (filter === 'gira_no' && participaGira) return false;
+                return matchesName;
+            });
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-slate-400 text-sm">No se encontraron alumnos con ese criterio de búsqueda.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(st => {
+                const participa = st.gira > 0;
+                const rowBg = participa ? 'hover:bg-teal-50/40' : 'bg-rose-50/30 hover:bg-rose-50/60';
+                const statusBadge = participa
+                    ? `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-teal-100 text-teal-800">Participa</span>`
+                    : `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-slate-200 text-slate-600">No va a gira</span>`;
+
+                return `
+                    <tr onclick="openStudentModal(${st.num})" class="${rowBg} cursor-pointer transition">
+                        <td class="py-3 px-3 sm:px-4 text-center font-bold text-slate-500">${st.num}</td>
+                        <td class="py-3 px-3 sm:px-4 font-semibold text-slate-800">
+                            <div>${st.nombre}</div>
+                            <div class="sm:hidden mt-1">${statusBadge}</div>
+                        </td>
+                        <td class="py-3 px-3 sm:px-4 text-center hidden sm:table-cell">${statusBadge}</td>
+                        <td class="py-3 px-3 sm:px-4 text-right font-bold ${participa ? 'text-teal-700' : 'text-slate-400'}">${formatCLP(st.gira)}</td>
+                        <td class="py-3 px-3 sm:px-4 text-right font-bold text-fuchsia-700">${formatCLP(st.alumnos)}</td>
+                        <td class="py-3 px-3 sm:px-4 text-right font-medium text-sky-700 hidden md:table-cell">${formatCLP(perStudentGeneral)}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Modal detalle alumno
+        function openStudentModal(num) {
+            const st = TREASURY_DATA.alumnos.find(s => s.num === num);
+            if (!st) return;
+            const perStudentGeneral = Math.round(TREASURY_DATA.ingresosOficiales.general / 30);
+            const participa = st.gira > 0;
+
+            document.getElementById('modal-st-num').textContent = `Lista Oficial • N° ${String(st.num).padStart(2, '0')}`;
+            document.getElementById('modal-st-name').textContent = st.nombre;
+            
+            const badge = document.getElementById('modal-st-badge');
+            badge.textContent = participa ? 'Participa en Gira de Estudios' : 'No participa en Gira';
+            badge.className = participa
+                ? 'px-2.5 py-1 rounded-full text-xs font-bold bg-teal-100 text-teal-800'
+                : 'px-2.5 py-1 rounded-full text-xs font-bold bg-slate-200 text-slate-700';
+
+            document.getElementById('modal-st-gira').textContent = formatCLP(st.gira);
+            document.getElementById('modal-st-alumnos').textContent = formatCLP(st.alumnos);
+            document.getElementById('modal-st-general').textContent = formatCLP(perStudentGeneral);
+            document.getElementById('modal-st-total').textContent = formatCLP(st.gira + st.alumnos + perStudentGeneral);
+
+            const modal = document.getElementById('student-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeStudentModal() {
+            const modal = document.getElementById('student-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Renderizar Gastos separados por cada Caja
+        function renderExpenses() {
+            const funds = ['general', 'alumnos', 'gira'];
+            funds.forEach(fund => {
+                const listEl = document.getElementById(`expenses-list-${fund}`);
+                const subEl = document.getElementById(`expense-subtotal-${fund}`);
+                const items = TREASURY_DATA.gastos.filter(g => g.caja === fund);
+                const subtotal = items.reduce((sum, i) => sum + i.monto, 0);
+
+                subEl.textContent = '-' + formatCLP(subtotal);
+
+                if (items.length === 0) {
+                    listEl.innerHTML = `
+                        <div class="py-8 px-4 text-center border-2 border-dashed border-slate-200 rounded-xl">
+                            <p class="text-xs font-medium text-slate-400">Sin egresos registrados en esta caja a la fecha.</p>
+                            <button onclick="openAddExpenseModal('${fund}')" class="mt-2 text-xs font-semibold text-pac-navy hover:underline">+ Agregar primer gasto</button>
+                        </div>
+                    `;
+                } else {
+                    listEl.innerHTML = items.map(item => `
+                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start justify-between gap-3">
+                            <div class="space-y-1">
+                                <p class="text-xs sm:text-sm font-bold text-slate-800 leading-snug">${item.concepto}</p>
+                                <div class="flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
+                                    <span>${item.fecha}</span>
+                                    ${item.respaldo ? `<span>• ${item.respaldo}</span>` : ''}
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-end gap-1.5 shrink-0">
+                                <span class="text-xs sm:text-sm font-extrabold text-rose-600">-${formatCLP(item.monto)}</span>
+                                <button onclick="deleteExpense(${item.id})" class="text-[11px] text-slate-400 hover:text-rose-600 transition" title="Eliminar gasto">
+                                    Eliminar
+                                </button>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            });
+        }
+
+        // Modales de Gastos y Caja General
+        function openAddExpenseModal(defaultFund = 'general') {
+            document.getElementById('exp-fund').value = defaultFund;
+            const modal = document.getElementById('expense-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeAddExpenseModal() {
+            const modal = document.getElementById('expense-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleAddExpense(e) {
+            e.preventDefault();
+            const caja = document.getElementById('exp-fund').value;
+            const concepto = document.getElementById('exp-concept').value.trim();
+            const monto = parseInt(document.getElementById('exp-amount').value, 10);
+            const fecha = document.getElementById('exp-date').value;
+            const respaldo = document.getElementById('exp-doc').value.trim();
+
+            if (!concepto || isNaN(monto) || monto <= 0) return;
+
+            TREASURY_DATA.gastos.push({
+                id: Date.now(),
+                caja,
+                concepto,
+                monto,
+                fecha,
+                respaldo
+            });
+
+            e.target.reset();
+            document.getElementById('exp-date').value = "2026-11-26";
+            closeAddExpenseModal();
+            refreshDashboard();
+            showToast('Gasto registrado y descontado de su caja.');
+        }
+
+        function deleteExpense(id) {
+            TREASURY_DATA.gastos = TREASURY_DATA.gastos.filter(g => g.id !== id);
+            refreshDashboard();
+            showToast('Registro de gasto eliminado.');
+        }
+
+        function openEditGeneralModal() {
+            document.getElementById('input-general-income').value = TREASURY_DATA.ingresosOficiales.general;
+            document.getElementById('input-cutoff-date').value = TREASURY_DATA.fechaCorte;
+            const modal = document.getElementById('general-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeEditGeneralModal() {
+            const modal = document.getElementById('general-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleUpdateGeneralFund(e) {
+            e.preventDefault();
+            const val = parseInt(document.getElementById('input-general-income').value, 10);
+            const cutoff = document.getElementById('input-cutoff-date').value.trim();
+            if (!isNaN(val) && val >= 0) {
+                TREASURY_DATA.ingresosOficiales.general = val;
+            }
+            if (cutoff) {
+                TREASURY_DATA.fechaCorte = cutoff;
+            }
+            closeEditGeneralModal();
+            refreshDashboard();
+            showToast('Monto de Caja General y fecha actualizados.');
+        }
+
+        // Gráficos con Chart.js
+        function updateCharts(totals) {
+            if (typeof Chart === 'undefined') return;
+
+            // 1. Gráfico de Barras (Actividades de Gira y Alumnos)
+            const ctxBar = document.getElementById('activitiesChart');
+            if (ctxBar) {
+                const chartActivities = TREASURY_DATA.actividades.filter(a => a.caja !== 'general');
+                const labels = chartActivities.map(a => a.nombre.length > 22 ? a.nombre.substring(0, 20) + '…' : a.nombre);
+                const dataValues = chartActivities.map(a => a.monto);
+                const bgColors = chartActivities.map(a => a.caja === 'gira' ? '#0D9488' : '#C026D3');
+
+                if (barChartInstance) barChartInstance.destroy();
+                barChartInstance = new Chart(ctxBar, {
+                    type: 'bar',
+                    data: {
+                        labels,
+                        datasets: [{
+                            label: 'Recaudación ($ CLP)',
+                            data: dataValues,
+                            backgroundColor: bgColors,
+                            borderRadius: 6,
+                            maxBarThickness: 28
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: (ctx) => ' ' + formatCLP(ctx.raw)
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                ticks: { font: { size: 10 }, maxRotation: 45, minRotation: 35 },
+                                grid: { display: false }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    font: { size: 11 },
+                                    callback: (val) => '$' + (val / 1000).toLocaleString('es-CL') + 'k'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 2. Gráfico de Dona (Distribución entre las 3 Cajas)
+            const ctxDoughnut = document.getElementById('fundsDoughnutChart');
+            if (ctxDoughnut) {
+                if (doughnutChartInstance) doughnutChartInstance.destroy();
+                doughnutChartInstance = new Chart(ctxDoughnut, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Caja Gira Estudios', 'Caja de Alumnos', 'Caja General Curso'],
+                        datasets: [{
+                            data: [
+                                Math.max(0, totals.gira.disponible),
+                                Math.max(0, totals.alumnos.disponible),
+                                Math.max(0, totals.general.disponible)
+                            ],
+                            backgroundColor: ['#0D9488', '#C026D3', '#0284C7'],
+                            borderWidth: 2,
+                            borderColor: '#FFFFFF',
+                            hoverOffset: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '66%',
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: (ctx) => ` ${ctx.label}: ${formatCLP(ctx.raw)}`
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Copiar Resumen Formateado para WhatsApp
+        function copyWhatsAppSummary() {
+            const t = calculateTotals();
+            const text = 
+`📊 *RENDICIÓN DE CUENTAS TESORERÍA 2026*
+🏫 *Pan American College • 2° Medio B*
+👨‍🏫 Prof. Jefe: Marcelo Cortes
+📅 Corte al: ${TREASURY_DATA.fechaCorte}
+
+*1️⃣ CAJA GIRA DE ESTUDIOS (20 alumnos)*
+• Recaudado: ${formatCLP(t.gira.ingresos)}
+• Gastos: -${formatCLP(t.gira.gastos)}
+✅ *Disponible: ${formatCLP(t.gira.disponible)}*
+
+*2️⃣ CAJA DE ALUMNOS (30 alumnos)*
+• Recaudado: ${formatCLP(t.alumnos.ingresos)}
+• Gastos: -${formatCLP(t.alumnos.gastos)}
+✅ *Disponible: ${formatCLP(t.alumnos.disponible)}*
+
+*3️⃣ CAJA GENERAL DEL CURSO*
+• Recaudado: ${formatCLP(t.general.ingresos)}
+• Gastos: -${formatCLP(t.general.gastos)}
+✅ *Disponible: ${formatCLP(t.general.disponible)}*
+
+💰 *TOTAL CONSOLIDADO: ${formatCLP(t.totalDisponible)}*
+_Directiva 2026: Myriam Arias (Presidenta) • Juan Bello (Asesor)_`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast('¡Resumen copiado! Listo para pegar en el WhatsApp del curso.');
+            } catch (err) {
+                showToast('No se pudo copiar automáticamente.');
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // Descargar una copia HTML autocontenida con los datos actualizados en pantalla
+        function downloadUpdatedHTML() {
+            const currentHTML = document.documentElement.outerHTML;
+            const updatedDataBlock = `const TREASURY_DATA = ${JSON.stringify(TREASURY_DATA, null, 4)};`;
+            const finalHTML = '<!DOCTYPE html>\n' + currentHTML.replace(/const TREASURY_DATA = \{[\s\S]*?\n        \};/, updatedDataBlock);
+
+            const blob = new Blob([finalHTML], { type: 'text/html;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Rendicion_Tesoreria_2MB_2026.html`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast('Archivo HTML descargado. ¡Puedes enviarlo directo por WhatsApp!');
+        }
+
+        // Inicializar al cargar la página
+        window.addEventListener('DOMContentLoaded', () => {
+            switchTab('resumen');
+            refreshDashboard();
+        });
+    </script>
+</body>
+</html>
