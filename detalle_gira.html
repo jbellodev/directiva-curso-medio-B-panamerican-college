@@ -46,9 +46,10 @@
 
   <style>
     /* Estilos base del documento y profundidad visual */
-    body {
+    html, body {
       background-color: #F4F7FA;
       color: #1E293B;
+      overflow-x: clip;
     }
     .pac-gradient {
       background: linear-gradient(135deg, #0F2B4C 0%, #163B66 60%, #1E4E82 100%);
@@ -59,28 +60,43 @@
     .obs-indent {
       text-indent: 1.75rem;
     }
-    /* Desplazamiento horizontal táctil fluido en móviles */
+
+    /* Contenedor de desplazamiento horizontal táctil en celular y escritorio */
     .scroll-x-touch {
-      overflow-x: auto;
+      display: block;
+      width: 100%;
+      overflow-x: auto !important;
+      overflow-y: visible;
       -webkit-overflow-scrolling: touch;
       touch-action: pan-x pan-y;
     }
-    /* Columnas fijas de alumno para mantener referencia al desplazar en horizontal */
+
+    /* Columnas fijas compactas para no tapar el desplazamiento horizontal en móvil */
     .sticky-num {
       position: sticky;
       left: 0;
       z-index: 20;
+      width: 36px;
+      min-width: 36px;
     }
     .sticky-name {
       position: sticky;
-      left: 2.5rem;
+      left: 36px;
       z-index: 20;
-      box-shadow: 2px 0 6px -2px rgba(15, 43, 76, 0.18);
+      max-width: 185px;
+      box-shadow: 2px 0 6px -2px rgba(15, 43, 76, 0.22);
+    }
+    @media (min-width: 640px) {
+      .sticky-name {
+        max-width: none;
+        min-width: 240px;
+      }
     }
     thead .sticky-num,
     thead .sticky-name {
       z-index: 30;
     }
+
     /* Marco simulado para probar vista móvil (390px) en escritorio */
     .preview-mobile-frame {
       max-width: 406px;
@@ -565,7 +581,7 @@
             </p>
 
             <div class="scroll-x-touch rounded-xl border border-slate-200 bg-white">
-              <table id="gira-individual-table" class="w-full text-left border-collapse text-xs whitespace-nowrap min-w-[2350px]">
+              <table id="gira-individual-table" class="w-full text-left border-collapse text-xs whitespace-nowrap min-w-[2450px]">
                 <thead id="gira-individual-head"></thead>
                 <tbody id="gira-individual-body" class="divide-y divide-slate-100 text-slate-700"></tbody>
                 <tfoot id="gira-individual-foot"></tfoot>
@@ -771,7 +787,7 @@
       return n < 0 ? `-$${Math.abs(n).toLocaleString('es-CL')}` : `$${n.toLocaleString('es-CL')}`;
     };
 
-    // Cambia entre vista de escritorio y marco de celular para revisar el desplazamiento horizontal
+    // Cambia entre vista de escritorio y marco de celular para probar el desplazamiento horizontal
     function setPreviewMode(mode) {
       try {
         const wrapper = document.getElementById('preview-wrapper');
@@ -805,13 +821,13 @@
 
         headEl.innerHTML = `
           <tr class="bg-slate-900 text-white uppercase tracking-wider">
-            <th class="py-3 px-2.5 font-semibold w-10 text-center sticky-num bg-slate-900">#</th>
-            <th class="py-3 px-3 font-semibold min-w-[230px] sticky-name bg-slate-900">Nombre y Apellido Alumn@</th>
+            <th class="py-3 px-2 font-semibold text-center sticky-num bg-slate-900">#</th>
+            <th class="py-3 px-3 font-semibold sticky-name bg-slate-900 truncate sm:whitespace-nowrap">Nombre y Apellido Alumn@</th>
             ${COLUMNAS_GIRA.map((col) => {
               const isDesc = col === 'Descuentos';
               const isFinal = col === 'CAJA GIRA DE ESTUDIOS';
               const cls = isDesc ? 'bg-red-900 text-red-100' : isFinal ? 'bg-emerald-800 text-white' : '';
-              return `<th class="py-3 px-3 font-semibold text-right min-w-[135px] ${cls}">${col}</th>`;
+              return `<th class="py-3 px-3 font-semibold text-right min-w-[130px] ${cls}">${col}</th>`;
             }).join('')}
           </tr>
         `;
@@ -821,8 +837,8 @@
           const bgRow = idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/80';
           return `
             <tr class="${bgRow} hover:bg-sky-50/70">
-              <td class="py-2.5 px-2.5 text-center font-semibold text-slate-500 sticky-num ${bgRow}">${num}</td>
-              <td class="py-2.5 px-3 font-semibold text-slate-800 sticky-name ${bgRow}">${nombre}</td>
+              <td class="py-2.5 px-2 text-center font-semibold text-slate-500 sticky-num ${bgRow}">${num}</td>
+              <td class="py-2.5 px-3 font-semibold text-slate-800 sticky-name ${bgRow} truncate sm:whitespace-nowrap">${nombre}</td>
               ${vals.map((val, cIdx) => {
                 const isDesc = cIdx === 14;
                 const isFinal = cIdx === 15;
@@ -839,8 +855,8 @@
 
         footEl.innerHTML = `
           <tr class="bg-slate-900 text-white font-bold text-xs">
-            <td class="py-3.5 px-2.5 sticky-num bg-slate-900"></td>
-            <td class="py-3.5 px-3 uppercase tracking-wider sticky-name bg-slate-900">Total por Ítem / Gira</td>
+            <td class="py-3.5 px-2 sticky-num bg-slate-900"></td>
+            <td class="py-3.5 px-3 uppercase tracking-wider sticky-name bg-slate-900 truncate sm:whitespace-nowrap">Total por Ítem / Gira</td>
             ${TOTALES_GIRA_COL.map((tot, idx) => {
               const isDesc = idx === 14;
               const isFinal = idx === 15;
